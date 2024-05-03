@@ -1,0 +1,11 @@
+
+Q
+java:S1066R"/Merge this if statement with the enclosing one.(Š©şËúÿÿÿÿ8íÍ‹ñ1
+I
+java:S1481#",Remove this unused "wartosc" local variable.(Òá‹Ÿ8’Î‹ñ1
+]	java:S1259"<This block of commented-out lines of code should be removed.(şÖ‹šûÿÿÿÿ8ü³—°ñ1
+X	java:S125<"<This block of commented-out lines of code should be removed.(„ Çã8£Ù¬Œñ1
+d
+java:S1144Z"GRemove this unused private "handleDepartureCarFromIntersection" method.(ÌÆ8ƒ´—°ñ1
+d
+java:S1144‚"GRemove this unused private "printNumbersOfCarsWaitingAndPassed" method.(´¨"8±ğ®Œñ1
