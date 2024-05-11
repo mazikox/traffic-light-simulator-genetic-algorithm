@@ -8,6 +8,8 @@ import pl.mazurek.entity.Light;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
@@ -22,8 +24,16 @@ public class CarPanelService extends JPanel {
 
     public CarPanelService(TrafficLightSimulationApplication simulationApplication) {
         cars = new CopyOnWriteArrayList<>();
-        ;
         this.simulationApplication = simulationApplication;
+        setLayout(null);
+
+        JButton statsButton = new JButton("Stats");
+        statsButton.setBounds(10,10,65,25);
+        statsButton.addActionListener(e -> {
+            StatsFrame statsFrame = new StatsFrame(simulationApplication);
+
+        });
+        add(statsButton);
     }
 
 

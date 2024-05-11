@@ -29,3 +29,7 @@ d
 4src/main/java/pl/mazurek/gui/ArrivalConfigPanel.java,2\6\263177277e4c6a0c9a70c8f9e8ad3a3969496fd3
 b
 2src/main/java/pl/mazurek/gui/LightConfigPanel.java,1\c\1c2d67450dbe979b3f060ad64ebe75bde2b50b33
+e
+5src/main/java/pl/mazurek/gui/HomeSimulationPanel.java,d\3\d3b29772534842278e14f668db2e5114ae325b61
+\
+,src/main/java/pl/mazurek/gui/StatsFrame.java,1\6\1661fb1f29dca8b87bd35f2b5497144ccfccd5c3

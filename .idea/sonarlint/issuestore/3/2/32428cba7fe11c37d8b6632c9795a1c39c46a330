@@ -1,22 +1,26 @@
 
-g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÔÊ·êõ1
+h	java:S112‰"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÔÊ·êõ1
 T
-java:S1948"7Make "simulationApplication" transient or serializable.(ùè«8×Î·êõ1
+java:S1948"7Make "simulationApplication" transient or serializable.(ùè«8×Î·êõ1
 C
-java:S1948"&Make "cars" transient or serializable.(ºµˆ¿8×Î·êõ1
->
-java:S1116"Remove this empty statement.(Åñ­õşÿÿÿÿ8ÙÎ·êõ1
+java:S1948"&Make "cars" transient or serializable.(ºµˆ¿8×Î·êõ1
+Q
+java:S1481!"/Remove this unused "statsFrame" local variable.(æÅÍüÿÿÿÿ8úì³Áö1
 o
-java:S3776#"RRefactor this method to reduce its Cognitive Complexity from 69 to the 15 allowed.(Ùöœ£8ÛÎ·êõ1
-{
-java:S2142~"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8åÎ·êõ1
+java:S3776-"RRefactor this method to reduce its Cognitive Complexity from 69 to the 15 allowed.(Ùöœ£8ÕÇŸ¿ö1
+|
+java:S2142ˆ"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8ŞÇŸ¿ö1
 p
-java:S3776„"RRefactor this method to reduce its Cognitive Complexity from 87 to the 15 allowed.(°Øûä8æÎ·êõ1
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 87 to the 15 allowed.(°Øûä8àÇŸ¿ö1
 _
-java:S1075ü"ARefactor your code to get this URI from a customizable parameter.(Ï°†°8ñÎ·êõ1
+java:S1075†"ARefactor your code to get this URI from a customizable parameter.(Ï°†°8ìÇŸ¿ö1
 _
-java:S1075ı"ARefactor your code to get this URI from a customizable parameter.(Ëã¹æ8òÎ·êõ1
+java:S1075‡"ARefactor your code to get this URI from a customizable parameter.(Ëã¹æ8·Ò™¿ö1
+T
+java:S1128"7Remove this unused import 'java.awt.event.ActionEvent'.(Úù“‘8ŸÇÉÂö1
+W
+java:S1128":Remove this unused import 'java.awt.event.ActionListener'.(Ìä¹8ŸÇÉÂö1
 ã
-java:S6541#"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 93 to 64, Complexity from 27 to 14, Nesting Level from 4 to 2, Number of Variables from 25 to 6.(Ùöœ£8÷Î·êõ1
+java:S6541-"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 93 to 64, Complexity from 27 to 14, Nesting Level from 4 to 2, Number of Variables from 25 to 6.(Ùöœ£8ñÇŸ¿ö1
 ã
-java:S6541„"ÄA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 96 to 64, Complexity from 81 to 14, Nesting Level from 3 to 2, Number of Variables from 7 to 6.(°Øûä8÷Î·êõ1
+java:S6541"ÄA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 96 to 64, Complexity from 81 to 14, Nesting Level from 3 to 2, Number of Variables from 7 to 6.(°Øûä8ñÇŸ¿ö1

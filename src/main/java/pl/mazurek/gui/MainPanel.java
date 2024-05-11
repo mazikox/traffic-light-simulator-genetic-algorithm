@@ -20,7 +20,7 @@ public class MainPanel extends JFrame {
         JTabbedPane tabbedPaneMain = new JTabbedPane();
         JTabbedPane tabbedPaneSimulation = new JTabbedPane();
 
-        JPanel simulationPanel = new SimulationPanel(simulationApplication);
+        JPanel simulationPanel = new HomeSimulationPanel(simulationApplication);
         JPanel arrivalConfigPanel = new ArrivalConfigPanel();
         JPanel lightConfigPanel = new LightConfigPanel();
 

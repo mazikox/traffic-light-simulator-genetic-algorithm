@@ -5,12 +5,12 @@ import pl.mazurek.application.TrafficLightSimulationApplication;
 import javax.swing.*;
 import java.awt.*;
 
-public class SimulationPanel extends JPanel {
+public class HomeSimulationPanel extends JPanel {
     private JButton startButton;
     private JButton resetButton;
     private Timer timer;
 
-    public SimulationPanel(TrafficLightSimulationApplication simulationApplication) {
+    public HomeSimulationPanel(TrafficLightSimulationApplication simulationApplication) {
         CarPanelService carPanel = new CarPanelService(simulationApplication);
         createTimerForCarAnimation(carPanel);
         createCars(carPanel);
