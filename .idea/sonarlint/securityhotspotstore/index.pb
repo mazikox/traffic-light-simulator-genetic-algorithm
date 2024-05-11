@@ -21,3 +21,11 @@ X
 .src/main/java/pl/mazurek/entity/Direction.java,e\4\e480e2749265fafe4181c805f6128424a090805a
 a
 1src/main/java/pl/mazurek/gui/CarPanelService.java,3\2\32428cba7fe11c37d8b6632c9795a1c39c46a330
+a
+1src/main/java/pl/mazurek/gui/SimulationPanel.java,2\7\2768a01214f5908156e0fcc724e765de584f45ff
+f
+6src/main/java/pl/mazurek/gui/GeneticAlgorithPanel.java,1\f\1fe01344eb475cd0de37544324c8d0ac1ca22614
+d
+4src/main/java/pl/mazurek/gui/ArrivalConfigPanel.java,2\6\263177277e4c6a0c9a70c8f9e8ad3a3969496fd3
+b
+2src/main/java/pl/mazurek/gui/LightConfigPanel.java,1\c\1c2d67450dbe979b3f060ad64ebe75bde2b50b33

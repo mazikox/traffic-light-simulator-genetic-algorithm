@@ -2,20 +2,28 @@ package pl.mazurek.entity;
 
 public class Intersection {
 
-    private int carsSouth;
-    private int carsNorth;
-    private int carsWest;
-    private int carsEast;
-    private int carsSouthToWest;
-    private int carsEastToSouth;
-    private int carsWestToNorth;
-    private int carsNorthToEast;
+    private int carsSouthToNorthForRender;
+    private int carsNorthToSouthForRender;
+    private int carsWestToEastForRender;
+    private int carsEastToWestForRender;
+    private int carsSouthToWestForRender;
+    private int carsEastToSouthForRender;
+    private int carsWestToNorthForRender;
+    private int carsNorthToEastForRender;
+    private int carsSouthToNorthOnIntersection;
+    private int carsNorthToSouthOnIntersection;
+    private int carsWestToEastOnIntersection;
+    private int carsEastToWestOnIntersection;
+    private int carsSouthToWestOnIntersection;
+    private int carsEastToSouthOnIntersection;
+    private int carsWestToNorthOnIntersection;
+    private int carsNorthToEastOnIntersection;
 
 
-    private int carsPassedSouth;
-    private int carsPassedNorth;
-    private int carsPassedWest;
-    private int carsPassedEast;
+    private int carsPassedSouthToNorth;
+    private int carsPassedNorthToSouth;
+    private int carsPassedWestToEast;
+    private int carsPassedEastToWest;
     private int carsPassedSouthToWest;
     private int carsPassedEastToSouth;
     private int carsPassedWestToNorth;
@@ -32,100 +40,100 @@ public class Intersection {
         reset();
     }
 
-    public int getCarsSouth() {
-        return carsSouth;
+    public int getCarsSouthToNorthForRender() {
+        return carsSouthToNorthForRender;
     }
 
-    public void setCarsSouth(int carsSouth) {
-        this.carsSouth = carsSouth;
+    public void setCarsSouthToNorthForRender(int carsSouthToNorthForRender) {
+        this.carsSouthToNorthForRender = carsSouthToNorthForRender;
     }
 
-    public int getCarsNorth() {
-        return carsNorth;
+    public int getCarsNorthToSouthForRender() {
+        return carsNorthToSouthForRender;
     }
 
-    public void setCarsNorth(int carsNorth) {
-        this.carsNorth = carsNorth;
+    public void setCarsNorthToSouthForRender(int carsNorthToSouthForRender) {
+        this.carsNorthToSouthForRender = carsNorthToSouthForRender;
     }
 
-    public int getCarsWest() {
-        return carsWest;
+    public int getCarsWestToEastForRender() {
+        return carsWestToEastForRender;
     }
 
-    public void setCarsWest(int carsWest) {
-        this.carsWest = carsWest;
+    public void setCarsWestToEastForRender(int carsWestToEastForRender) {
+        this.carsWestToEastForRender = carsWestToEastForRender;
     }
 
-    public int getCarsEast() {
-        return carsEast;
+    public int getCarsEastToWestForRender() {
+        return carsEastToWestForRender;
     }
 
-    public void setCarsEast(int carsEast) {
-        this.carsEast = carsEast;
+    public void setCarsEastToWestForRender(int carsEastToWestForRender) {
+        this.carsEastToWestForRender = carsEastToWestForRender;
     }
 
-    public int getCarsSouthToWest() {
-        return carsSouthToWest;
+    public int getCarsSouthToWestForRender() {
+        return carsSouthToWestForRender;
     }
 
-    public void setCarsSouthToWest(int carsSouthToWest) {
-        this.carsSouthToWest = carsSouthToWest;
+    public void setCarsSouthToWestForRender(int carsSouthToWestForRender) {
+        this.carsSouthToWestForRender = carsSouthToWestForRender;
     }
 
-    public int getCarsEastToSouth() {
-        return carsEastToSouth;
+    public int getCarsEastToSouthForRender() {
+        return carsEastToSouthForRender;
     }
 
-    public void setCarsEastToSouth(int carsEastToSouth) {
-        this.carsEastToSouth = carsEastToSouth;
+    public void setCarsEastToSouthForRender(int carsEastToSouthForRender) {
+        this.carsEastToSouthForRender = carsEastToSouthForRender;
     }
 
-    public int getCarsWestToNorth() {
-        return carsWestToNorth;
+    public int getCarsWestToNorthForRender() {
+        return carsWestToNorthForRender;
     }
 
-    public void setCarsWestToNorth(int carsWestToNorth) {
-        this.carsWestToNorth = carsWestToNorth;
+    public void setCarsWestToNorthForRender(int carsWestToNorthForRender) {
+        this.carsWestToNorthForRender = carsWestToNorthForRender;
     }
 
-    public int getCarsNorthToEast() {
-        return carsNorthToEast;
+    public int getCarsNorthToEastForRender() {
+        return carsNorthToEastForRender;
     }
 
-    public void setCarsNorthToEast(int carsNorthToEast) {
-        this.carsNorthToEast = carsNorthToEast;
+    public void setCarsNorthToEastForRender(int carsNorthToEastForRender) {
+        this.carsNorthToEastForRender = carsNorthToEastForRender;
     }
 
-    public int getCarsPassedSouth() {
-        return carsPassedSouth;
+    public int getCarsPassedSouthToNorth() {
+        return carsPassedSouthToNorth;
     }
 
-    public void setCarsPassedSouth(int carsPassedSouth) {
-        this.carsPassedSouth = carsPassedSouth;
+    public void setCarsPassedSouthToNorth(int carsPassedSouthToNorth) {
+        this.carsPassedSouthToNorth = carsPassedSouthToNorth;
     }
 
-    public int getCarsPassedNorth() {
-        return carsPassedNorth;
+    public int getCarsPassedNorthToSouth() {
+        return carsPassedNorthToSouth;
     }
 
-    public void setCarsPassedNorth(int carsPassedNorth) {
-        this.carsPassedNorth = carsPassedNorth;
+    public void setCarsPassedNorthToSouth(int carsPassedNorthToSouth) {
+        this.carsPassedNorthToSouth = carsPassedNorthToSouth;
     }
 
-    public int getCarsPassedWest() {
-        return carsPassedWest;
+    public int getCarsPassedWestToEast() {
+        return carsPassedWestToEast;
     }
 
-    public void setCarsPassedWest(int carsPassedWest) {
-        this.carsPassedWest = carsPassedWest;
+    public void setCarsPassedWestToEast(int carsPassedWestToEast) {
+        this.carsPassedWestToEast = carsPassedWestToEast;
     }
 
-    public int getCarsPassedEast() {
-        return carsPassedEast;
+    public int getCarsPassedEastToWest() {
+        return carsPassedEastToWest;
     }
 
-    public void setCarsPassedEast(int carsPassedEast) {
-        this.carsPassedEast = carsPassedEast;
+    public void setCarsPassedEastToWest(int carsPassedEastToWest) {
+        this.carsPassedEastToWest = carsPassedEastToWest;
     }
 
     public int getCarsPassedSouthToWest() {
@@ -200,20 +208,93 @@ public class Intersection {
         this.valueOfPassedCars = valueOfPassedCars;
     }
 
-    public void reset() {
-        carsSouth = 0;
-        carsEast = 0;
-        carsNorth = 0;
-        carsWest = 0;
-        carsNorthToEast = 0;
-        carsWestToNorth = 0;
-        carsEastToSouth = 0;
-        carsSouthToWest = 0;
+    public int getCarsSouthToNorthOnIntersection() {
+        return carsSouthToNorthOnIntersection;
+    }
 
-        carsPassedSouth = 0;
-        carsPassedEast = 0;
-        carsPassedNorth = 0;
-        carsPassedWest = 0;
+    public void setCarsSouthToNorthOnIntersection(int carsSouthToNorthOnIntersection) {
+        this.carsSouthToNorthOnIntersection = carsSouthToNorthOnIntersection;
+    }
+
+    public int getCarsNorthToSouthOnIntersection() {
+        return carsNorthToSouthOnIntersection;
+    }
+
+    public void setCarsNorthToSouthOnIntersection(int carsNorthToSouthOnIntersection) {
+        this.carsNorthToSouthOnIntersection = carsNorthToSouthOnIntersection;
+    }
+
+    public int getCarsWestToEastOnIntersection() {
+        return carsWestToEastOnIntersection;
+    }
+
+    public void setCarsWestToEastOnIntersection(int carsWestToEastOnIntersection) {
+        this.carsWestToEastOnIntersection = carsWestToEastOnIntersection;
+    }
+
+    public int getCarsEastToWestOnIntersection() {
+        return carsEastToWestOnIntersection;
+    }
+
+    public void setCarsEastToWestOnIntersection(int carsEastToWestOnIntersection) {
+        this.carsEastToWestOnIntersection = carsEastToWestOnIntersection;
+    }
+
+    public int getCarsSouthToWestOnIntersection() {
+        return carsSouthToWestOnIntersection;
+    }
+
+    public void setCarsSouthToWestOnIntersection(int carsSouthToWestOnIntersection) {
+        this.carsSouthToWestOnIntersection = carsSouthToWestOnIntersection;
+    }
+
+    public int getCarsEastToSouthOnIntersection() {
+        return carsEastToSouthOnIntersection;
+    }
+
+    public void setCarsEastToSouthOnIntersection(int carsEastToSouthOnIntersection) {
+        this.carsEastToSouthOnIntersection = carsEastToSouthOnIntersection;
+    }
+
+    public int getCarsWestToNorthOnIntersection() {
+        return carsWestToNorthOnIntersection;
+    }
+
+    public void setCarsWestToNorthOnIntersection(int carsWestToNorthOnIntersection) {
+        this.carsWestToNorthOnIntersection = carsWestToNorthOnIntersection;
+    }
+
+    public int getCarsNorthToEastOnIntersection() {
+        return carsNorthToEastOnIntersection;
+    }
+
+    public void setCarsNorthToEastOnIntersection(int carsNorthToEastOnIntersection) {
+        this.carsNorthToEastOnIntersection = carsNorthToEastOnIntersection;
+    }
+
+    public void reset() {
+        carsSouthToNorthForRender = 0;
+        carsEastToWestForRender = 0;
+        carsNorthToSouthForRender = 0;
+        carsWestToEastForRender = 0;
+        carsNorthToEastForRender = 0;
+        carsWestToNorthForRender = 0;
+        carsEastToSouthForRender = 0;
+        carsSouthToWestForRender = 0;
+
+        carsSouthToNorthOnIntersection = 0;
+        carsEastToWestOnIntersection = 0;
+        carsNorthToSouthOnIntersection = 0;
+        carsWestToEastOnIntersection = 0;
+        carsNorthToEastOnIntersection = 0;
+        carsWestToNorthOnIntersection = 0;
+        carsEastToSouthOnIntersection = 0;
+        carsSouthToWestOnIntersection = 0;
+
+        carsPassedSouthToNorth = 0;
+        carsPassedEastToWest = 0;
+        carsPassedNorthToSouth = 0;
+        carsPassedWestToEast = 0;
         carsPassedNorthToEast = 0;
         carsPassedWestToNorth = 0;
         carsPassedEastToSouth = 0;

@@ -1,11 +1,62 @@
 
 Q
-java:S1066R"/Merge this if statement with the enclosing one.(Š©şËúÿÿÿÿ8íÍ‹ñ1
+java:S1066Z"/Merge this if statement with the enclosing one.(Š©şËúÿÿÿÿ8¹‚ºêõ1
+v
+java:S1104"YMake CZAS_DOL_GORA a static final constant or non-public and provide accessors if needed.(îªöî8¹‚ºêõ1
+}
+java:S1104"[Make CZAS_LEWO_PRAWO a static final constant or non-public and provide accessors if needed.(ÄİÎ¡şÿÿÿÿ8¹‚ºêõ1
+{
+java:S1104"YMake CZAS_DOL_LEWO a static final constant or non-public and provide accessors if needed.(ûæš¯ıÿÿÿÿ8¹‚ºêõ1
+w
+java:S1104"ZMake CZAS_LEWO_GORA a static final constant or non-public and provide accessors if needed.(Š¸×8¹‚ºêõ1
+ƒ
+java:S1104"fMake carArrivalTimeNorthToSouth a static final constant or non-public and provide accessors if needed.(­•Âù8¹‚ºêõ1
+†
+java:S1104"dMake carArrivalTimeEastToWest a static final constant or non-public and provide accessors if needed.(Ë±î‚üÿÿÿÿ8¹‚ºêõ1
+ƒ
+java:S1104"fMake carArrivalTimeSouthToNorth a static final constant or non-public and provide accessors if needed.(Íóå 8¹‚ºêõ1
+
+java:S1104"dMake carArrivalTimeWestToEast a static final constant or non-public and provide accessors if needed.(çõ¹»8¹‚ºêõ1
+‡
+java:S1104"eMake carArrivalTimeNorthToEast a static final constant or non-public and provide accessors if needed.(€ä‰¦üÿÿÿÿ8¹‚ºêõ1
+
+java:S1104"eMake carArrivalTimeEastToSouth a static final constant or non-public and provide accessors if needed.(ÛÕm8¹‚ºêõ1
+‡
+java:S1104"eMake carArrivalTimeSouthToWest a static final constant or non-public and provide accessors if needed.(Å°Ãªùÿÿÿÿ8¹‚ºêõ1
+‡
+java:S1104"eMake carArrivalTimeWestToNorth a static final constant or non-public and provide accessors if needed.(òùÿÿÿÿ8¹‚ºêõ1
+P
+java:S1444"3Make this "public static CZAS_DOL_GORA" field final(îªöî8¹‚ºêõ1
+W
+java:S1444"5Make this "public static CZAS_LEWO_PRAWO" field final(ÄİÎ¡şÿÿÿÿ8¹‚ºêõ1
+U
+java:S1444"3Make this "public static CZAS_DOL_LEWO" field final(ûæš¯ıÿÿÿÿ8¹‚ºêõ1
+Q
+java:S1444"4Make this "public static CZAS_LEWO_GORA" field final(Š¸×8¹‚ºêõ1
+]
+java:S1444"@Make this "public static carArrivalTimeNorthToSouth" field final(­•Âù8¹‚ºêõ1
+`
+java:S1444">Make this "public static carArrivalTimeEastToWest" field final(Ë±î‚üÿÿÿÿ8¹‚ºêõ1
+]
+java:S1444"@Make this "public static carArrivalTimeSouthToNorth" field final(Íóå 8¹‚ºêõ1
+[
+java:S1444">Make this "public static carArrivalTimeWestToEast" field final(çõ¹»8¹‚ºêõ1
+a
+java:S1444"?Make this "public static carArrivalTimeNorthToEast" field final(€ä‰¦üÿÿÿÿ8¹‚ºêõ1
+[
+java:S1444"?Make this "public static carArrivalTimeEastToSouth" field final(ÛÕm8¹‚ºêõ1
+a
+java:S1444"?Make this "public static carArrivalTimeSouthToWest" field final(Å°Ãªùÿÿÿÿ8¹‚ºêõ1
+a
+java:S1444"?Make this "public static carArrivalTimeWestToNorth" field final(òùÿÿÿÿ8º‚ºêõ1
+u
+java:S3008"XRename this field "CZAS_DOL_GORA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îªöî8ï‚ºêõ1
+|
+java:S3008"ZRename this field "CZAS_LEWO_PRAWO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄİÎ¡şÿÿÿÿ8ï‚ºêõ1
+z
+java:S3008"XRename this field "CZAS_DOL_LEWO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûæš¯ıÿÿÿÿ8ï‚ºêõ1
+v
+java:S3008"YRename this field "CZAS_LEWO_GORA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¸×8ï‚ºêõ1
 I
-java:S1481#",Remove this unused "wartosc" local variable.(Òá‹Ÿ8’Î‹ñ1
-]	java:S1259"<This block of commented-out lines of code should be removed.(şÖ‹šûÿÿÿÿ8ü³—°ñ1
-X	java:S125<"<This block of commented-out lines of code should be removed.(„ Çã8£Ù¬Œñ1
-d
-java:S1144Z"GRemove this unused private "handleDepartureCarFromIntersection" method.(ÌÆ8ƒ´—°ñ1
-d
-java:S1144‚"GRemove this unused private "printNumbersOfCarsWaitingAndPassed" method.(´¨"8±ğ®Œñ1
+java:S1481+",Remove this unused "wartosc" local variable.(Òá‹Ÿ8ô‚ºêõ1
+]	java:S125A"<This block of commented-out lines of code should be removed.(şÖ‹šûÿÿÿÿ8õ‚ºêõ1

@@ -1,5 +1,7 @@
 package pl.mazurek.application;
 
+import pl.mazurek.entity.Car;
+import pl.mazurek.entity.Direction;
 import pl.mazurek.entity.Intersection;
 import pl.mazurek.entity.Light;
 
@@ -22,9 +24,6 @@ public class IntersectionService {
             intersection.setLightWestToEastAndEastToWest(Light.GREEN);
             intersection.setLightWestToNorthAndEastToSouth(Light.RED);
             kolejnoscSwiatel = 2;
-            System.out.println();
-            System.out.println("Swiatlo dol-gora: " + intersection.getLightSouthToNorthAndNorthToSouth());
-            System.out.println("Swiatlo lewo-prawo: " + intersection.getLightWestToEastAndEastToWest());
         } else if (intersection.getLightWestToEastAndEastToWest() == Light.GREEN && kolejnoscSwiatel == 2) {
             intersection.setLightSouthToNorthAndNorthToSouth(Light.RED);
             intersection.setLightSouthToWestAndNorthToEast(Light.RED);
@@ -32,112 +31,117 @@ public class IntersectionService {
             intersection.setLightWestToNorthAndEastToSouth(Light.GREEN);
             kolejnoscSwiatel = 3;
         } else if (intersection.getLightWestToNorthAndEastToSouth() == Light.GREEN && kolejnoscSwiatel == 3) {
-            System.out.println("ZIELONE");
             intersection.setLightSouthToNorthAndNorthToSouth(Light.GREEN);
             intersection.setLightSouthToWestAndNorthToEast(Light.RED);
             intersection.setLightWestToEastAndEastToWest(Light.RED);
             intersection.setLightWestToNorthAndEastToSouth(Light.RED);
             kolejnoscSwiatel = 0;
-            System.out.println();
-            System.out.println("Swiatlo dol-gora: " + intersection.getLightSouthToNorthAndNorthToSouth());
-            System.out.println("Swiatlo lewo-prawo: " + intersection.getLightWestToEastAndEastToWest());
         }
 
     }
 
-    public void deleteCar() {
-        if (intersection.getCarsSouth() != 0 && intersection.getLightSouthToNorthAndNorthToSouth() == Light.GREEN) {
-            intersection.setCarsSouth(intersection.getCarsSouth() - 1);
-            intersection.setCarsPassedSouth(intersection.getCarsPassedSouth() + 1);
+    public void deleteCar(Car car) {
+
+        if (car.getStartPosition() == Direction.SOUTH && car.getDirection() == Direction.NORTH){
+            intersection.setCarsSouthToNorthOnIntersection(intersection.getCarsSouthToNorthOnIntersection() - 1);
+            intersection.setCarsPassedSouthToNorth(intersection.getCarsPassedSouthToNorth() + 1);
         }
 
-        if (intersection.getCarsNorth() != 0 && intersection.getLightSouthToNorthAndNorthToSouth() == Light.GREEN) {
-            intersection.setCarsNorth(intersection.getCarsNorth() - 1);
-            intersection.setCarsPassedNorth(intersection.getCarsPassedNorth() + 1);
+        else if(car.getStartPosition() == Direction.NORTH && car.getDirection() == Direction.SOUTH){
+            intersection.setCarsNorthToSouthOnIntersection(intersection.getCarsNorthToSouthOnIntersection() - 1);
+            intersection.setCarsPassedNorthToSouth(intersection.getCarsPassedNorthToSouth() + 1);
         }
 
-        if (intersection.getCarsWest() != 0 && intersection.getLightWestToEastAndEastToWest() == Light.GREEN) {
-            intersection.setCarsWest(intersection.getCarsWest() - 1);
-            intersection.setCarsPassedWest(intersection.getCarsPassedWest() + 1);
+        else if(car.getStartPosition() == Direction.WEST && car.getDirection() == Direction.EAST){
+            intersection.setCarsWestToEastOnIntersection(intersection.getCarsWestToEastOnIntersection() - 1);
+            intersection.setCarsPassedWestToEast(intersection.getCarsPassedWestToEast() + 1);
         }
 
-        if (intersection.getCarsEast() != 0 && intersection.getLightWestToEastAndEastToWest() == Light.GREEN) {
-            intersection.setCarsEast(intersection.getCarsEast() - 1);
-            intersection.setCarsPassedEast(intersection.getCarsPassedEast() + 1);
+        else if(car.getStartPosition() == Direction.EAST && car.getDirection() == Direction.WEST){
+            intersection.setCarsEastToWestOnIntersection(intersection.getCarsEastToWestOnIntersection() - 1);
+            intersection.setCarsPassedEastToWest(intersection.getCarsPassedEastToWest() + 1);
         }
 
-        if (intersection.getCarsSouthToWest() != 0 && intersection.getLightSouthToWestAndNorthToEast() == Light.GREEN) {
-            intersection.setCarsSouthToWest(intersection.getCarsSouthToWest() - 1);
+        else if(car.getStartPosition() == Direction.SOUTH && car.getDirection() == Direction.WEST){
+            intersection.setCarsSouthToWestOnIntersection(intersection.getCarsSouthToWestOnIntersection() - 1);
             intersection.setCarsPassedSouthToWest(intersection.getCarsPassedSouthToWest() + 1);
         }
 
-        if (intersection.getCarsNorthToEast() != 0 && intersection.getLightSouthToWestAndNorthToEast() == Light.GREEN) {
-            intersection.setCarsNorthToEast(intersection.getCarsNorthToEast() - 1);
+        else if(car.getStartPosition() == Direction.NORTH && car.getDirection() == Direction.EAST){
+            intersection.setCarsNorthToEastOnIntersection(intersection.getCarsNorthToEastOnIntersection() - 1);
             intersection.setCarsPassedNorthToEast(intersection.getCarsPassedNorthToEast() + 1);
         }
 
-        if (intersection.getCarsWestToNorth() != 0 && intersection.getLightWestToNorthAndEastToSouth() == Light.GREEN) {
-            intersection.setCarsWestToNorth(intersection.getCarsWestToNorth() - 1);
+        else if(car.getStartPosition() == Direction.WEST && car.getDirection() == Direction.NORTH){
+            intersection.setCarsWestToNorthOnIntersection(intersection.getCarsWestToNorthOnIntersection() - 1);
             intersection.setCarsPassedWestToNorth(intersection.getCarsPassedWestToNorth() + 1);
         }
 
-        if (intersection.getCarsEastToSouth() != 0 && intersection.getLightWestToNorthAndEastToSouth() == Light.GREEN) {
-            intersection.setCarsEastToSouth(intersection.getCarsEastToSouth() - 1);
+        else if(car.getStartPosition() == Direction.EAST && car.getDirection() == Direction.SOUTH){
+            intersection.setCarsEastToSouthOnIntersection(intersection.getCarsEastToSouthOnIntersection() - 1);
             intersection.setCarsPassedEastToSouth(intersection.getCarsPassedEastToSouth() + 1);
         }
     }
 
     public void addCarNorth() {
-        intersection.setCarsNorth(intersection.getCarsNorth() + 1);
+        intersection.setCarsNorthToSouthForRender(intersection.getCarsNorthToSouthForRender() + 1);
+        intersection.setCarsNorthToSouthOnIntersection(intersection.getCarsNorthToSouthOnIntersection() + 1);
     }
 
     public void addCarSouth() {
-        intersection.setCarsSouth(intersection.getCarsSouth() + 1);
+        intersection.setCarsSouthToNorthForRender(intersection.getCarsSouthToNorthForRender() + 1);
+        intersection.setCarsSouthToNorthOnIntersection(intersection.getCarsSouthToNorthOnIntersection() + 1);
     }
 
     public void addCarEast() {
-        intersection.setCarsEast(intersection.getCarsEast() + 1);
+        intersection.setCarsEastToWestForRender(intersection.getCarsEastToWestForRender() + 1);
+        intersection.setCarsEastToWestOnIntersection(intersection.getCarsEastToWestOnIntersection() + 1);
     }
 
     public void addCarWest() {
-        intersection.setCarsWest(intersection.getCarsWest() + 1);
+        intersection.setCarsWestToEastForRender(intersection.getCarsWestToEastForRender() + 1);
+        intersection.setCarsWestToEastOnIntersection(intersection.getCarsWestToEastOnIntersection() + 1);
     }
 
     public void addCarSouthToWest() {
-        intersection.setCarsSouthToWest(intersection.getCarsSouthToWest() + 1);
+        intersection.setCarsSouthToWestForRender(intersection.getCarsSouthToWestForRender() + 1);
+        intersection.setCarsSouthToWestOnIntersection(intersection.getCarsSouthToWestOnIntersection() + 1);
     }
 
     public void addCarNorthToEast() {
-        intersection.setCarsNorthToEast(intersection.getCarsNorthToEast() + 1);
+        intersection.setCarsNorthToEastForRender(intersection.getCarsNorthToEastForRender() + 1);
+        intersection.setCarsNorthToEastOnIntersection(intersection.getCarsNorthToEastOnIntersection() + 1);
     }
 
     public void addCarWestToNorth() {
-        intersection.setCarsWestToNorth(intersection.getCarsWestToNorth() + 1);
+        intersection.setCarsWestToNorthForRender(intersection.getCarsWestToNorthForRender() + 1);
+        intersection.setCarsWestToNorthOnIntersection(intersection.getCarsWestToNorthOnIntersection() + 1);
     }
 
     public void addCarEastToSouth() {
-        intersection.setCarsEastToSouth(intersection.getCarsEastToSouth() + 1);
+        intersection.setCarsEastToSouthForRender(intersection.getCarsEastToSouthForRender() + 1);
+        intersection.setCarsEastToSouthOnIntersection(intersection.getCarsEastToSouthOnIntersection() + 1);
     }
 
     public void printNumbersOfCarsWaitingToPass() {
         System.out.println();
         System.out.println();
-        System.out.println("Cars waiting from north: " + intersection.getCarsNorth());
-        System.out.println("Cars waiting from south: " + intersection.getCarsSouth());
-        System.out.println("Cars waiting from east: " + intersection.getCarsEast());
-        System.out.println("Cars waiting from west: " + intersection.getCarsWest());
-        System.out.println("Cars waiting from south to west: " + intersection.getCarsSouthToWest());
-        System.out.println("Cars waiting from north to east: " + intersection.getCarsNorthToEast());
-        System.out.println("Cars waiting from west to north: " + intersection.getCarsWestToNorth());
-        System.out.println("Cars waiting from east to south: " + intersection.getCarsEastToSouth());
+        System.out.println("Cars waiting from north: " + intersection.getCarsNorthToSouthOnIntersection());
+        System.out.println("Cars waiting from south: " + intersection.getCarsSouthToNorthOnIntersection());
+        System.out.println("Cars waiting from east: " + intersection.getCarsEastToWestOnIntersection());
+        System.out.println("Cars waiting from west: " + intersection.getCarsWestToEastOnIntersection());
+        System.out.println("Cars waiting from south to west: " + intersection.getCarsSouthToWestOnIntersection());
+        System.out.println("Cars waiting from north to east: " + intersection.getCarsNorthToEastOnIntersection());
+        System.out.println("Cars waiting from west to north: " + intersection.getCarsWestToNorthOnIntersection());
+        System.out.println("Cars waiting from east to south: " + intersection.getCarsEastToSouthOnIntersection());
     }
 
     public void printNumbersOfCarsPassed() {
         System.out.println();
-        System.out.println("Cars passed to north: " + intersection.getCarsPassedNorth());
-        System.out.println("Cars passed to south: " + intersection.getCarsPassedSouth());
-        System.out.println("Cars passed to east: " + intersection.getCarsPassedEast());
-        System.out.println("Cars passed to west: " + intersection.getCarsPassedWest());
+        System.out.println("Cars passed from north: " + intersection.getCarsPassedNorthToSouth());
+        System.out.println("Cars passed from south: " + intersection.getCarsPassedSouthToNorth());
+        System.out.println("Cars passed from east: " + intersection.getCarsPassedEastToWest());
+        System.out.println("Cars passed from west: " + intersection.getCarsPassedWestToEast());
         System.out.println("Cars passed from south to west: " + intersection.getCarsPassedSouthToWest());
         System.out.println("Cars passed from north  to east: " + intersection.getCarsPassedNorthToEast());
         System.out.println("Cars passed from west to north: " + intersection.getCarsPassedWestToNorth());

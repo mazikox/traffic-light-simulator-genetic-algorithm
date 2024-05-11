@@ -37,4 +37,17 @@ public class Car {
     public void setMoving(boolean moving) {
         isMoving = moving;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "x=" + x +
+                ", y=" + y +
+                ", startX=" + startX +
+                ", startY=" + startY +
+                ", startPosition=" + startPosition +
+                ", direction=" + direction +
+                ", isMoving=" + isMoving +
+                '}';
+    }
 }

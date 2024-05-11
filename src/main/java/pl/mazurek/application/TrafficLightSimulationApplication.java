@@ -8,10 +8,18 @@ public class TrafficLightSimulationApplication {
 
     private int speed = 10;
 
-    public static final int CZAS_DOL_GORA = 30000;
-    public static final int CZAS_LEWO_PRAWO = 10000;
-    public static final int CZAS_DOL_LEWO = 15000;
-    public static final int CZAS_LEWO_GORA = 25000;
+    public static int CZAS_DOL_GORA = 30000;
+    public static int CZAS_LEWO_PRAWO = 10000;
+    public static int CZAS_DOL_LEWO = 15000;
+    public static int CZAS_LEWO_GORA = 25000;
+    public static int carArrivalTimeNorthToSouth = 2000;
+    public static int carArrivalTimeEastToWest = 5500;
+    public static int carArrivalTimeSouthToNorth = 20000;
+    public static int carArrivalTimeWestToEast = 8500;
+    public static int carArrivalTimeNorthToEast = 8500;
+    public static int carArrivalTimeEastToSouth = 18500;
+    public static int carArrivalTimeSouthToWest = 14500;
+    public static int carArrivalTimeWestToNorth = 14500;
     private int lightTick;
     private boolean isActive = false;
 
@@ -19,7 +27,7 @@ public class TrafficLightSimulationApplication {
     public void start() {
         if(!isActive){
             System.out.println("Start symulacji");
-            simulation(CZAS_DOL_GORA, CZAS_LEWO_PRAWO, CZAS_DOL_LEWO, CZAS_LEWO_GORA);
+            simulation();
         }
     }
 
@@ -31,7 +39,7 @@ public class TrafficLightSimulationApplication {
         }
     }
 
-    private void simulation(int czasDolGora, int czasLewoPrawo, int czasDolLewo, int czasLewoGora) {
+    private void simulation() {
         int wartosc;
         isActive = true;
 
@@ -53,11 +61,11 @@ public class TrafficLightSimulationApplication {
                 tick++;
                 lightTick++;
 
-                handleArrivalCarAtIntersection(intersectionService, tick);
+                handleArrivalCarAtIntersection(tick);
 //                handleDepartureCarFromIntersection(intersectionService, tick, czasDolGora, czasLewoPrawo, czasDolLewo, czasLewoGora);
-                handleTrafficLightChange(intersectionService, czasDolGora, czasLewoPrawo, czasDolLewo, czasLewoGora);
+                handleTrafficLightChange(intersectionService, CZAS_DOL_GORA, CZAS_LEWO_PRAWO, CZAS_DOL_LEWO, CZAS_LEWO_GORA);
 
-//                printNumbersOfCarsWaitingToPass(intersectionService, tick);
+                printNumbersOfCarsWaitingAndPassed(tick);
             }
         }
     }
@@ -87,47 +95,43 @@ public class TrafficLightSimulationApplication {
     }
 
 
-    private void handleDepartureCarFromIntersection(IntersectionService intersectionService, int tick, int czasDolGora, int czasLewoPrawo, int czasDolLewo, int czasLewoGora) {
-        // every 1 sec
-        if (tick % countTimeWithSpeed(1000) == 0) {
-            intersectionService.deleteCar();
-        }
-    }
 
-    private void handleArrivalCarAtIntersection(IntersectionService intersectionService, int tick) {
+    private void handleArrivalCarAtIntersection(int tick) {
         // every 2 second
-        if (tick % countTimeWithSpeed(20000) == 0) {
+        if (tick % countTimeWithSpeed(carArrivalTimeSouthToNorth) == 0) {
             intersectionService.addCarSouth();
         }
 
-        if (tick % countTimeWithSpeed(2000) == 0) {
+        if (tick % countTimeWithSpeed(carArrivalTimeNorthToSouth) == 0) {
             intersectionService.addCarNorth();
         }
 
-        if (tick % countTimeWithSpeed(5500) == 0) {
+        if (tick % countTimeWithSpeed(carArrivalTimeEastToWest) == 0) {
             intersectionService.addCarEast();
         }
 
-        if (tick % countTimeWithSpeed(8500) == 0) {
+        if (tick % countTimeWithSpeed(carArrivalTimeWestToEast) == 0) {
             intersectionService.addCarWest();
+        }
+
+        if (tick % countTimeWithSpeed(carArrivalTimeNorthToEast) == 0) {
             intersectionService.addCarNorthToEast();
         }
 
-        if (tick % countTimeWithSpeed(11500) == 0) {
-            intersectionService.addCarNorthToEast();
-        }
-
-        if (tick % countTimeWithSpeed(14500) == 0) {
+        if (tick % countTimeWithSpeed(carArrivalTimeSouthToWest) == 0) {
             intersectionService.addCarSouthToWest();
+        }
+
+        if (tick % countTimeWithSpeed(carArrivalTimeWestToNorth) == 0) {
             intersectionService.addCarWestToNorth();
         }
 
-        if (tick % countTimeWithSpeed(21500) == 0) {
+        if (tick % countTimeWithSpeed(carArrivalTimeEastToSouth) == 0) {
             intersectionService.addCarEastToSouth();
         }
     }
 
-    private void printNumbersOfCarsWaitingAndPassed(IntersectionService intersectionService, int tick){
+    private void printNumbersOfCarsWaitingAndPassed(int tick){
         if (tick % countTimeWithSpeed(55000) == 0) {
             intersectionService.printNumbersOfCarsWaitingToPass();
             intersectionService.printNumbersOfCarsPassed();
