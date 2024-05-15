@@ -17,17 +17,21 @@ public class ArrivalConfigPanel extends JPanel implements ActionListener {
     private JTextField eastToWestTextField;
     private JTextField eastToSouthTextField;
 
-    public ArrivalConfigPanel() {
+    TrafficLightSimulationApplication simulationApplication;
+
+    public ArrivalConfigPanel(TrafficLightSimulationApplication simulationApplication) {
+        this.simulationApplication = simulationApplication;
+
         setLayout(null);
 
-        southToNorthTextField = new JTextField(String.valueOf(TrafficLightSimulationApplication.carArrivalTimeSouthToNorth));
-        southToWestTextField = new JTextField(String.valueOf(TrafficLightSimulationApplication.carArrivalTimeSouthToWest));
-        westToEastTextField = new JTextField(String.valueOf(TrafficLightSimulationApplication.carArrivalTimeWestToEast));
-        westToNorthTextField = new JTextField(String.valueOf(TrafficLightSimulationApplication.carArrivalTimeWestToNorth));
-        northToSouthTextField = new JTextField(String.valueOf(TrafficLightSimulationApplication.carArrivalTimeNorthToSouth));
-        northToEastTextField = new JTextField(String.valueOf(TrafficLightSimulationApplication.carArrivalTimeNorthToEast));
-        eastToWestTextField = new JTextField(String.valueOf(TrafficLightSimulationApplication.carArrivalTimeEastToWest));
-        eastToSouthTextField = new JTextField(String.valueOf(TrafficLightSimulationApplication.carArrivalTimeEastToSouth));
+        southToNorthTextField = new JTextField(String.valueOf(simulationApplication.carArrivalTimeSouthToNorth));
+        southToWestTextField = new JTextField(String.valueOf(simulationApplication.carArrivalTimeSouthToWest));
+        westToEastTextField = new JTextField(String.valueOf(simulationApplication.carArrivalTimeWestToEast));
+        westToNorthTextField = new JTextField(String.valueOf(simulationApplication.carArrivalTimeWestToNorth));
+        northToSouthTextField = new JTextField(String.valueOf(simulationApplication.carArrivalTimeNorthToSouth));
+        northToEastTextField = new JTextField(String.valueOf(simulationApplication.carArrivalTimeNorthToEast));
+        eastToWestTextField = new JTextField(String.valueOf(simulationApplication.carArrivalTimeEastToWest));
+        eastToSouthTextField = new JTextField(String.valueOf(simulationApplication.carArrivalTimeEastToSouth));
 
         southToNorthTextField.setBounds(700,650, 100, 30);
         southToWestTextField.setBounds(550,650, 100, 30);
@@ -65,21 +69,21 @@ public class ArrivalConfigPanel extends JPanel implements ActionListener {
         source.setText(newText);
 
         if (source == southToNorthTextField) {
-            TrafficLightSimulationApplication.carArrivalTimeSouthToNorth = Integer.parseInt(newText);
+            simulationApplication.carArrivalTimeSouthToNorth = Integer.parseInt(newText);
         } else if (source == southToWestTextField) {
-            TrafficLightSimulationApplication.carArrivalTimeSouthToWest = Integer.parseInt(newText);
+            simulationApplication.carArrivalTimeSouthToWest = Integer.parseInt(newText);
         } else if (source == westToEastTextField) {
-            TrafficLightSimulationApplication.carArrivalTimeWestToEast = Integer.parseInt(newText);
+            simulationApplication.carArrivalTimeWestToEast = Integer.parseInt(newText);
         } else if (source == westToNorthTextField) {
-            TrafficLightSimulationApplication.carArrivalTimeWestToNorth = Integer.parseInt(newText);
+            simulationApplication.carArrivalTimeWestToNorth = Integer.parseInt(newText);
         } else if (source == northToSouthTextField) {
-            TrafficLightSimulationApplication.carArrivalTimeNorthToSouth = Integer.parseInt(newText);
+            simulationApplication.carArrivalTimeNorthToSouth = Integer.parseInt(newText);
         } else if (source == northToEastTextField) {
-            TrafficLightSimulationApplication.carArrivalTimeNorthToEast = Integer.parseInt(newText);
+            simulationApplication.carArrivalTimeNorthToEast = Integer.parseInt(newText);
         } else if (source == eastToWestTextField) {
-            TrafficLightSimulationApplication.carArrivalTimeEastToWest = Integer.parseInt(newText);
+            simulationApplication.carArrivalTimeEastToWest = Integer.parseInt(newText);
         } else if (source == eastToSouthTextField) {
-            TrafficLightSimulationApplication.carArrivalTimeEastToSouth = Integer.parseInt(newText);
+            simulationApplication.carArrivalTimeEastToSouth = Integer.parseInt(newText);
         }
     }
 }

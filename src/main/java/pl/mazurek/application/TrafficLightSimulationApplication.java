@@ -6,46 +6,45 @@ public class TrafficLightSimulationApplication {
 
     private IntersectionService intersectionService;
 
-    private int speed = 10;
+    public int speed = 30;
 
-    public static int CZAS_DOL_GORA = 30000;
-    public static int CZAS_LEWO_PRAWO = 10000;
-    public static int CZAS_DOL_LEWO = 15000;
-    public static int CZAS_LEWO_GORA = 25000;
-    public static int carArrivalTimeNorthToSouth = 2000;
-    public static int carArrivalTimeEastToWest = 5500;
-    public static int carArrivalTimeSouthToNorth = 20000;
-    public static int carArrivalTimeWestToEast = 8500;
-    public static int carArrivalTimeNorthToEast = 8500;
-    public static int carArrivalTimeEastToSouth = 18500;
-    public static int carArrivalTimeSouthToWest = 14500;
-    public static int carArrivalTimeWestToNorth = 14500;
+    public int CZAS_DOL_GORA = 3000;
+    public int CZAS_LEWO_PRAWO = 1000;
+    public int CZAS_DOL_LEWO = 1500;
+    public int CZAS_LEWO_GORA = 2500;
+    public int carArrivalTimeNorthToSouth = 200;
+    public int carArrivalTimeEastToWest = 550;
+    public int carArrivalTimeSouthToNorth = 2000;
+    public int carArrivalTimeWestToEast = 850;
+    public int carArrivalTimeNorthToEast = 850;
+    public int carArrivalTimeEastToSouth = 1850;
+    public int carArrivalTimeSouthToWest = 1450;
+    public int carArrivalTimeWestToNorth = 1450;
+    public boolean isUsedByAlgorithm;
     private int lightTick;
     private boolean isActive = false;
 
 
     public void start() {
         if(!isActive){
-            System.out.println("Start symulacji");
             simulation();
         }
     }
 
     public void stop(){
         if(isActive){
-            System.out.println("stop symulacji");
             isActive = false;
             intersectionService.reset();
         }
     }
 
-    private void simulation() {
-        int wartosc;
+    public int simulation() {
+        intersectionService = new IntersectionService();
         isActive = true;
 
         long lastTime = System.nanoTime();
         // 1000 ticks per second
-        double amountOfTicks = 1000;
+        double amountOfTicks = 100;
         double ns = 1_000_000_000 / amountOfTicks;
         double delta = 0;
         int tick = 0;
@@ -62,11 +61,29 @@ public class TrafficLightSimulationApplication {
                 lightTick++;
 
                 handleArrivalCarAtIntersection(tick);
-//                handleDepartureCarFromIntersection(intersectionService, tick, czasDolGora, czasLewoPrawo, czasDolLewo, czasLewoGora);
                 handleTrafficLightChange(intersectionService, CZAS_DOL_GORA, CZAS_LEWO_PRAWO, CZAS_DOL_LEWO, CZAS_LEWO_GORA);
-
-                printNumbersOfCarsWaitingAndPassed(tick);
+                if(isUsedByAlgorithm){
+                    if(intersectionService.value > 100_000){
+                        return intersectionService.getValue();
+                    }
+                    deleteCarByAlgorith(tick);
+                    wyswietlWartosciDoUsuniecia(tick);
+                }
             }
+        }
+        return intersectionService.value;
+    }
+
+    private void deleteCarByAlgorith(int tick) {
+        if(tick % 100 == 0){
+            intersectionService.deleteCarForAlgorithm(this);
+        }
+    }
+
+    private void wyswietlWartosciDoUsuniecia(int tick){
+        if (tick % 1_000 == 0){
+            System.out.println("Value: " + intersectionService.getValue());
+            System.out.println(intersectionService.getIntersection());
         }
     }
 
@@ -131,12 +148,6 @@ public class TrafficLightSimulationApplication {
         }
     }
 
-    private void printNumbersOfCarsWaitingAndPassed(int tick){
-        if (tick % countTimeWithSpeed(55000) == 0) {
-            intersectionService.printNumbersOfCarsWaitingToPass();
-            intersectionService.printNumbersOfCarsPassed();
-        }
-    }
 
     private int countTimeWithSpeed(int time) {
         if(speed < 1){
@@ -145,8 +156,7 @@ public class TrafficLightSimulationApplication {
         return time / speed;
     }
 
-    public TrafficLightSimulationApplication(IntersectionService intersectionService) {
-        this.intersectionService = intersectionService;
+    public TrafficLightSimulationApplication() {
     }
 
     public IntersectionService getIntersectionService() {

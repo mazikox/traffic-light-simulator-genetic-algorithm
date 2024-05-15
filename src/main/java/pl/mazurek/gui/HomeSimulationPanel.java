@@ -6,11 +6,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class HomeSimulationPanel extends JPanel {
-    private JButton startButton;
-    private JButton resetButton;
     private Timer timer;
+    TrafficLightSimulationApplication simulationApplication;
 
     public HomeSimulationPanel(TrafficLightSimulationApplication simulationApplication) {
+        this.simulationApplication = simulationApplication;
         CarPanelService carPanel = new CarPanelService(simulationApplication);
         createTimerForCarAnimation(carPanel);
         createCars(carPanel);
@@ -18,8 +18,8 @@ public class HomeSimulationPanel extends JPanel {
         setLayout(new BorderLayout());
 
         JPanel buttonPanel = new JPanel();
-        startButton = new JButton("Start");
-        resetButton = new JButton("Reset");
+        JButton startButton = new JButton("Start");
+        JButton resetButton = new JButton("Reset");
 
         buttonPanel.add(startButton);
         buttonPanel.add(resetButton);
@@ -27,15 +27,16 @@ public class HomeSimulationPanel extends JPanel {
         add(buttonPanel, BorderLayout.SOUTH);
         add(carPanel);
 
-        startButton.addActionListener(e -> startSimulation(simulationApplication));
+        startButton.addActionListener(e -> {
+            simulationApplication.isUsedByAlgorithm = false;
+            startSimulation(simulationApplication);
+        });
 
         resetButton.addActionListener(e -> resetSimulation(simulationApplication, carPanel));
     }
 
     private void createTimerForCarAnimation(CarPanelService carPanel) {
-        timer = new Timer(1, e -> {
-            carPanel.moveCars();
-        });
+        timer = new Timer(1, e -> carPanel.moveCars());
     }
 
     private void startSimulation(TrafficLightSimulationApplication simulationApplication) {

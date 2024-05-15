@@ -7,7 +7,7 @@ import javax.swing.*;
 public class MainPanel extends JFrame {
 
 
-    public MainPanel(TrafficLightSimulationApplication simulationApplication) {
+    public MainPanel() {
 
         setTitle("Simulation");
         setSize(1024, 800);
@@ -20,9 +20,10 @@ public class MainPanel extends JFrame {
         JTabbedPane tabbedPaneMain = new JTabbedPane();
         JTabbedPane tabbedPaneSimulation = new JTabbedPane();
 
+        TrafficLightSimulationApplication simulationApplication = new TrafficLightSimulationApplication();
         JPanel simulationPanel = new HomeSimulationPanel(simulationApplication);
-        JPanel arrivalConfigPanel = new ArrivalConfigPanel();
-        JPanel lightConfigPanel = new LightConfigPanel();
+        JPanel arrivalConfigPanel = new ArrivalConfigPanel(simulationApplication);
+        JPanel lightConfigPanel = new LightConfigPanel(simulationApplication);
 
         tabbedPaneSimulation.add("Home", simulationPanel);
         tabbedPaneSimulation.add("Arrival Config", arrivalConfigPanel);

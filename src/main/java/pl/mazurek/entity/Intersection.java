@@ -272,6 +272,41 @@ public class Intersection {
         this.carsNorthToEastOnIntersection = carsNorthToEastOnIntersection;
     }
 
+    @Override
+    public String toString() {
+        return "Intersection{" +
+                "carsSouthToNorthForRender=" + carsSouthToNorthForRender +
+                ", carsNorthToSouthForRender=" + carsNorthToSouthForRender +
+                ", carsWestToEastForRender=" + carsWestToEastForRender +
+                ", carsEastToWestForRender=" + carsEastToWestForRender +
+                ", carsSouthToWestForRender=" + carsSouthToWestForRender +
+                ", carsEastToSouthForRender=" + carsEastToSouthForRender +
+                ", carsWestToNorthForRender=" + carsWestToNorthForRender +
+                ", carsNorthToEastForRender=" + carsNorthToEastForRender +
+                ", carsSouthToNorthOnIntersection=" + carsSouthToNorthOnIntersection +
+                ", carsNorthToSouthOnIntersection=" + carsNorthToSouthOnIntersection +
+                ", carsWestToEastOnIntersection=" + carsWestToEastOnIntersection +
+                ", carsEastToWestOnIntersection=" + carsEastToWestOnIntersection +
+                ", carsSouthToWestOnIntersection=" + carsSouthToWestOnIntersection +
+                ", carsEastToSouthOnIntersection=" + carsEastToSouthOnIntersection +
+                ", carsWestToNorthOnIntersection=" + carsWestToNorthOnIntersection +
+                ", carsNorthToEastOnIntersection=" + carsNorthToEastOnIntersection +
+                ", carsPassedSouthToNorth=" + carsPassedSouthToNorth +
+                ", carsPassedNorthToSouth=" + carsPassedNorthToSouth +
+                ", carsPassedWestToEast=" + carsPassedWestToEast +
+                ", carsPassedEastToWest=" + carsPassedEastToWest +
+                ", carsPassedSouthToWest=" + carsPassedSouthToWest +
+                ", carsPassedEastToSouth=" + carsPassedEastToSouth +
+                ", carsPassedWestToNorth=" + carsPassedWestToNorth +
+                ", carsPassedNorthToEast=" + carsPassedNorthToEast +
+                ", lightSouthToNorthAndNorthToSouth=" + lightSouthToNorthAndNorthToSouth +
+                ", lightWestToEastAndEastToWest=" + lightWestToEastAndEastToWest +
+                ", lightSouthToWestAndNorthToEast=" + lightSouthToWestAndNorthToEast +
+                ", lightWestToNorthAndEastToSouth=" + lightWestToNorthAndEastToSouth +
+                ", valueOfPassedCars=" + valueOfPassedCars +
+                '}';
+    }
+
     public void reset() {
         carsSouthToNorthForRender = 0;
         carsEastToWestForRender = 0;

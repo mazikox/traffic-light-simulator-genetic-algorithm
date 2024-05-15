@@ -21,8 +21,6 @@ X
 .src/main/java/pl/mazurek/entity/Direction.java,e\4\e480e2749265fafe4181c805f6128424a090805a
 a
 1src/main/java/pl/mazurek/gui/CarPanelService.java,3\2\32428cba7fe11c37d8b6632c9795a1c39c46a330
-a
-1src/main/java/pl/mazurek/gui/SimulationPanel.java,2\7\2768a01214f5908156e0fcc724e765de584f45ff
 f
 6src/main/java/pl/mazurek/gui/GeneticAlgorithPanel.java,1\f\1fe01344eb475cd0de37544324c8d0ac1ca22614
 d
@@ -33,3 +31,5 @@ e
 5src/main/java/pl/mazurek/gui/HomeSimulationPanel.java,d\3\d3b29772534842278e14f668db2e5114ae325b61
 \
 ,src/main/java/pl/mazurek/gui/StatsFrame.java,1\6\1661fb1f29dca8b87bd35f2b5497144ccfccd5c3
+u
+Esrc/main/java/pl/mazurek/application/GeneticAlgorithmApplication.java,2\7\27730c7b1a958c6a9a3afb9ff79c64425861c1d3

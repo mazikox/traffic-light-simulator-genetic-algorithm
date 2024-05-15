@@ -1,0 +1,13 @@
+
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(Üş®Ùùÿÿÿÿ8ÚÛıè÷1
+`
+java:S1854(">Remove this useless assignment to local variable "crossPoint".(ß±©–ùÿÿÿÿ8ÚÛıè÷1
+Q
+java:S1481("/Remove this unused "crossPoint" local variable.(ß±©–ùÿÿÿÿ8İÛıè÷1
+@
+java:S2119m"Save and re-use this "Random".(Ô–™“şÿÿÿÿ8ãÛıè÷1
+;
+java:S2119v"Save and re-use this "Random".(ùö¥8åÛıè÷1
+A
+java:S2119—"Save and re-use this "Random".(¼Ïãúÿÿÿÿ8êÛıè÷1

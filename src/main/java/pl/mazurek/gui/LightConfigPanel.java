@@ -13,13 +13,17 @@ public class LightConfigPanel extends JPanel implements ActionListener {
     private JTextField westToEastTextField;
     private JTextField westToNorthTextField;
 
-    public LightConfigPanel() {
+    TrafficLightSimulationApplication simulationApplication;
+
+    public LightConfigPanel(TrafficLightSimulationApplication simulationApplication) {
+        this.simulationApplication = simulationApplication;
+
         setLayout(null);
 
-        southToNorthTextField = new JTextField(String.valueOf(TrafficLightSimulationApplication.CZAS_DOL_GORA));
-        southToWestTextField = new JTextField(String.valueOf(TrafficLightSimulationApplication.CZAS_DOL_LEWO));
-        westToEastTextField = new JTextField(String.valueOf(TrafficLightSimulationApplication.CZAS_LEWO_PRAWO));
-        westToNorthTextField = new JTextField(String.valueOf(TrafficLightSimulationApplication.CZAS_LEWO_GORA));
+        southToNorthTextField = new JTextField(String.valueOf(simulationApplication.CZAS_DOL_GORA));
+        southToWestTextField = new JTextField(String.valueOf(simulationApplication.CZAS_DOL_LEWO));
+        westToEastTextField = new JTextField(String.valueOf(simulationApplication.CZAS_LEWO_PRAWO));
+        westToNorthTextField = new JTextField(String.valueOf(simulationApplication.CZAS_LEWO_GORA));
 
         southToNorthTextField.setBounds(700,650, 100, 30);
         southToWestTextField.setBounds(550,650, 100, 30);
@@ -45,13 +49,13 @@ public class LightConfigPanel extends JPanel implements ActionListener {
         source.setText(newText);
 
         if (source == southToNorthTextField) {
-            TrafficLightSimulationApplication.CZAS_DOL_GORA = Integer.parseInt(newText);
+            simulationApplication.CZAS_DOL_GORA = Integer.parseInt(newText);
         } else if (source == southToWestTextField) {
-            TrafficLightSimulationApplication.CZAS_DOL_LEWO = Integer.parseInt(newText);
+            simulationApplication.CZAS_DOL_LEWO = Integer.parseInt(newText);
         } else if (source == westToEastTextField) {
-            TrafficLightSimulationApplication.CZAS_LEWO_PRAWO = Integer.parseInt(newText);
+            simulationApplication.CZAS_LEWO_PRAWO = Integer.parseInt(newText);
         } else if (source == westToNorthTextField) {
-            TrafficLightSimulationApplication.CZAS_LEWO_GORA = Integer.parseInt(newText);
+            simulationApplication.CZAS_LEWO_GORA = Integer.parseInt(newText);
         }
     }
 }
