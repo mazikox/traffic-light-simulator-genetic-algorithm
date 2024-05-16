@@ -1,15 +1,21 @@
 package pl.mazurek.application;
 
+import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class GeneticAlgorithmApplication {
 
-    private static final int LICZBA_POPULACJI = 4;
-    private static final int LICZBA_ITERACJI = 3;
+    private static final int LICZBA_POPULACJI = 6;
+    private static final int LICZBA_ITERACJI = 10;
     private static final double PRAWDOPODOBIENSTWO_MUTACJI = 0.3;
 
     public void startAlgorithm() {
+        System.out.println("Started algorithm");
         int[] wyniki = new int[LICZBA_POPULACJI];
         int[] timeSouthToNorthAndNorthToSouth = new int[LICZBA_POPULACJI];
         int[] timeWestToEastAndEastToWest = new int[LICZBA_POPULACJI];
@@ -22,6 +28,7 @@ public class GeneticAlgorithmApplication {
             timeWestToEastAndEastToWest[i] = losujCzas();
             timeSouthToWestAndNorthToEast[i] = losujCzas();
             timeWestToNorthAndEastToSouth[i] = losujCzas();
+            System.out.println("wyniki");
             wyniki[i] = startSimulation(timeSouthToNorthAndNorthToSouth[i], timeWestToEastAndEastToWest[i], timeSouthToWestAndNorthToEast[i], timeWestToNorthAndEastToSouth[i]);
         }
 
@@ -106,42 +113,40 @@ public class GeneticAlgorithmApplication {
     }
 
     private int mutate(int time) {
-        return time + new Random().nextInt(2500) - 1000;
+        int mutationAmount = new Random().nextInt(5500) - 2000;  // Smaller mutation range
+        return time + mutationAmount;
     }
+
 
     private int selectParent(int[] wyniki) {
-        int rozmiar = 3;
-        int[] parentsCandidate = new int[rozmiar];
+        int totalFitness = Arrays.stream(wyniki).sum();
+        int randomPoint = new Random().nextInt(totalFitness);
+        int runningSum = 0;
 
-        // losowanie kandydatow
-        for (int i = 0; i < rozmiar; i++) {
-            parentsCandidate[i] = new Random().nextInt(wyniki.length);
-        }
-
-        // wybor nahjlepszego
-        int bestIndex = parentsCandidate[0];
-        for (int i = 1; i < rozmiar; i++) {
-            if (wyniki[parentsCandidate[i]] > wyniki[bestIndex]) {
-                bestIndex = parentsCandidate[i];
+        for (int i = 0; i < wyniki.length; i++) {
+            runningSum += wyniki[i];
+            if (runningSum >= randomPoint) {
+                return i;
             }
         }
-
-        return bestIndex;
+        return wyniki.length - 1;
     }
+
 
     private int startSimulation(int southNorth, int westEast, int southWest, int westNorth) {
-        AtomicInteger value = new AtomicInteger();
-        new Thread(() -> {
-            TrafficLightSimulationApplication simulationApplication = new TrafficLightSimulationApplication();
-            simulationApplication.CZAS_DOL_GORA = southNorth;
-            simulationApplication.CZAS_LEWO_PRAWO = westEast;
-            simulationApplication.CZAS_DOL_LEWO = southWest;
-            simulationApplication.CZAS_LEWO_GORA = westNorth;
-            simulationApplication.isUsedByAlgorithm = true;
-            value.set(simulationApplication.simulation());
-        }).start();
-        return value.get();
+        // Initialize simulation application with given timings
+        TrafficLightSimulationApplication simulationApplication = new TrafficLightSimulationApplication();
+        simulationApplication.CZAS_DOL_GORA = southNorth;
+        simulationApplication.CZAS_LEWO_PRAWO = westEast;
+        simulationApplication.CZAS_DOL_LEWO = southWest;
+        simulationApplication.CZAS_LEWO_GORA = westNorth;
+        simulationApplication.isUsedByAlgorithm = true;
+
+        // Run simulation and calculate fitness as the inverse of the total waiting time
+        int totalWaitingTime = simulationApplication.simulation();
+        return 1000000 / totalWaitingTime;  // Higher fitness for lower waiting times
     }
+
 
     private int crossParent(int rodzic1, int rodzic2) {
         return (rodzic1 + rodzic2) / 2;

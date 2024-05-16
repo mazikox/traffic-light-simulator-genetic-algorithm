@@ -10,10 +10,6 @@ java:S37768"RRefactor this method to reduce its Cognitive Complexity from 69 to
 java:S2142“"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8€¹¢îö1
 p
 java:S3776™"RRefactor this method to reduce its Cognitive Complexity from 78 to the 15 allowed.(°Øûä8‚¹¢îö1
-_
-java:S1075ˆ"ARefactor your code to get this URI from a customizable parameter.(Ï°†°8Â¹¢îö1
-_
-java:S1075‰"ARefactor your code to get this URI from a customizable parameter.(ð“Å®8Ä¹¢îö1
 ã
 java:S65418"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 93 to 64, Complexity from 27 to 14, Nesting Level from 4 to 2, Number of Variables from 25 to 6.(Ùöœ£8â¹¢îö1
 ã

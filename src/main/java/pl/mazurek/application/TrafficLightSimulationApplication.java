@@ -6,7 +6,7 @@ public class TrafficLightSimulationApplication {
 
     private IntersectionService intersectionService;
 
-    public int speed = 30;
+    public int speed = 100;
 
     public int CZAS_DOL_GORA = 3000;
     public int CZAS_LEWO_PRAWO = 1000;
@@ -63,11 +63,11 @@ public class TrafficLightSimulationApplication {
                 handleArrivalCarAtIntersection(tick);
                 handleTrafficLightChange(intersectionService, CZAS_DOL_GORA, CZAS_LEWO_PRAWO, CZAS_DOL_LEWO, CZAS_LEWO_GORA);
                 if(isUsedByAlgorithm){
-                    if(intersectionService.value > 100_000){
+                    if(tick > 200){
+                        wyswietlWartosciDoUsuniecia(tick);
                         return intersectionService.getValue();
                     }
                     deleteCarByAlgorith(tick);
-                    wyswietlWartosciDoUsuniecia(tick);
                 }
             }
         }
@@ -75,16 +75,16 @@ public class TrafficLightSimulationApplication {
     }
 
     private void deleteCarByAlgorith(int tick) {
-        if(tick % 100 == 0){
+        if(tick % countTimeWithSpeed(100) == 0){
             intersectionService.deleteCarForAlgorithm(this);
         }
     }
 
     private void wyswietlWartosciDoUsuniecia(int tick){
-        if (tick % 1_000 == 0){
+
             System.out.println("Value: " + intersectionService.getValue());
             System.out.println(intersectionService.getIntersection());
-        }
+
     }
 
     private void handleTrafficLightChange(IntersectionService intersectionService, int czasDolGora, int czasLewoPrawo, int czasDolLewo, int czasLewoGora) {

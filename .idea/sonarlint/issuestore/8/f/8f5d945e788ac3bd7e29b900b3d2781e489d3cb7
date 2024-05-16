@@ -1,37 +1,37 @@
 
 Q
-java:S1066k"/Merge this if statement with the enclosing one.(Š©şËúÿÿÿÿ8Î««ì÷1
-s
-java:S1104	"QMake speed a static final constant or non-public and provide accessors if needed.(şÎÃöÿÿÿÿÿ8Ï««ì÷1
+java:S1066k"/Merge this if statement with the enclosing one.(Š©şËúÿÿÿÿ8Ûâîø1
+n
+java:S1104	"QMake speed a static final constant or non-public and provide accessors if needed.(»®¼ä8Üâîø1
 {
-java:S1104"YMake CZAS_DOL_GORA a static final constant or non-public and provide accessors if needed.(ú‹Æ‘üÿÿÿÿ8Ï««ì÷1
+java:S1104"YMake CZAS_DOL_GORA a static final constant or non-public and provide accessors if needed.(ú‹Æ‘üÿÿÿÿ8Üâîø1
 x
-java:S1104"[Make CZAS_LEWO_PRAWO a static final constant or non-public and provide accessors if needed.(å´…×8Ï««ì÷1
+java:S1104"[Make CZAS_LEWO_PRAWO a static final constant or non-public and provide accessors if needed.(å´…×8Üâîø1
 v
-java:S1104"YMake CZAS_DOL_LEWO a static final constant or non-public and provide accessors if needed.(åª¡8Ï««ì÷1
+java:S1104"YMake CZAS_DOL_LEWO a static final constant or non-public and provide accessors if needed.(åª¡8Üâîø1
 w
-java:S1104"ZMake CZAS_LEWO_GORA a static final constant or non-public and provide accessors if needed.(ã²¥’8Ï««ì÷1
+java:S1104"ZMake CZAS_LEWO_GORA a static final constant or non-public and provide accessors if needed.(ã²¥’8İâîø1
 ˆ
-java:S1104"fMake carArrivalTimeNorthToSouth a static final constant or non-public and provide accessors if needed.(õ“”®ÿÿÿÿÿ8Ï««ì÷1
+java:S1104"fMake carArrivalTimeNorthToSouth a static final constant or non-public and provide accessors if needed.(õ“”®ÿÿÿÿÿ8İâîø1
 †
-java:S1104"dMake carArrivalTimeEastToWest a static final constant or non-public and provide accessors if needed.(â‰ıÑÿÿÿÿÿ8Ï««ì÷1
+java:S1104"dMake carArrivalTimeEastToWest a static final constant or non-public and provide accessors if needed.(â‰ıÑÿÿÿÿÿ8İâîø1
 ˆ
-java:S1104"fMake carArrivalTimeSouthToNorth a static final constant or non-public and provide accessors if needed.(Ì™¨úÿÿÿÿ8Ï««ì÷1
+java:S1104"fMake carArrivalTimeSouthToNorth a static final constant or non-public and provide accessors if needed.(Ì™¨úÿÿÿÿ8İâîø1
 †
-java:S1104"dMake carArrivalTimeWestToEast a static final constant or non-public and provide accessors if needed.(³Íµ—ıÿÿÿÿ8Ï««ì÷1
+java:S1104"dMake carArrivalTimeWestToEast a static final constant or non-public and provide accessors if needed.(³Íµ—ıÿÿÿÿ8İâîø1
 ‚
-java:S1104"eMake carArrivalTimeNorthToEast a static final constant or non-public and provide accessors if needed.(êóÉ¯8Ï««ì÷1
+java:S1104"eMake carArrivalTimeNorthToEast a static final constant or non-public and provide accessors if needed.(êóÉ¯8İâîø1
 ‡
-java:S1104"eMake carArrivalTimeEastToSouth a static final constant or non-public and provide accessors if needed.(ƒî¼¥ÿÿÿÿÿ8Ï««ì÷1
+java:S1104"eMake carArrivalTimeEastToSouth a static final constant or non-public and provide accessors if needed.(ƒî¼¥ÿÿÿÿÿ8İâîø1
 ‚
-java:S1104"eMake carArrivalTimeSouthToWest a static final constant or non-public and provide accessors if needed.(‹Ø¯8Ï««ì÷1
+java:S1104"eMake carArrivalTimeSouthToWest a static final constant or non-public and provide accessors if needed.(‹Ø¯8İâîø1
 ‡
-java:S1104"eMake carArrivalTimeWestToNorth a static final constant or non-public and provide accessors if needed.(äƒù‰ÿÿÿÿÿ8Ï««ì÷1
+java:S1104"eMake carArrivalTimeWestToNorth a static final constant or non-public and provide accessors if needed.(äƒù‰ÿÿÿÿÿ8İâîø1
 z
-java:S1104"]Make isUsedByAlgorithm a static final constant or non-public and provide accessors if needed.(ãêÎã8Ï««ì÷1
-y	java:S116"XRename this field "CZAS_DOL_GORA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ú‹Æ‘üÿÿÿÿ8’¬«ì÷1
-v	java:S116"ZRename this field "CZAS_LEWO_PRAWO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å´…×8’¬«ì÷1
-t	java:S116"XRename this field "CZAS_DOL_LEWO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åª¡8’¬«ì÷1
-u	java:S116"YRename this field "CZAS_LEWO_GORA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã²¥’8’¬«ì÷1
+java:S1104"]Make isUsedByAlgorithm a static final constant or non-public and provide accessors if needed.(ãêÎã8İâîø1
+y	java:S116"XRename this field "CZAS_DOL_GORA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ú‹Æ‘üÿÿÿÿ8³ãîø1
+v	java:S116"ZRename this field "CZAS_LEWO_PRAWO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å´…×8³ãîø1
+t	java:S116"XRename this field "CZAS_DOL_LEWO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åª¡8³ãîø1
+u	java:S116"YRename this field "CZAS_LEWO_GORA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã²¥’8³ãîø1
 Ÿ
-java:S1186Ÿ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¾¢˜¬8’¬«ì÷1
+java:S1186Ÿ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¾¢˜¬8³ãîø1

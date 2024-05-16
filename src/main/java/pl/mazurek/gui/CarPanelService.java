@@ -261,8 +261,8 @@ public class CarPanelService extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         try {
-            Image img = ImageIO.read(new File("F:\\IntellijProjects\\notes-manager\\traffic-light-manager\\src\\main\\resources\\images\\Useless.png"));
-            Image imgBackground = ImageIO.read(new File("F:\\IntellijProjects\\notes-manager\\traffic-light-manager\\src\\main\\resources\\images\\intersection.jpg"));
+            Image img = ImageIO.read(new File("src/main/resources/images/car.png"));
+            Image imgBackground = ImageIO.read(new File("src/main/resources/images/intersection.jpg"));
             g.drawImage(imgBackground, 0, 0, 1000, 700, this);
             for (Car car : cars) {
                 g.drawImage(img, car.x, car.y, carWidth, carHeight, this);
