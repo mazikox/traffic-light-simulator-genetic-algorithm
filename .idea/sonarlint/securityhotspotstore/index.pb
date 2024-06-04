@@ -33,3 +33,9 @@ e
 ,src/main/java/pl/mazurek/gui/StatsFrame.java,1\6\1661fb1f29dca8b87bd35f2b5497144ccfccd5c3
 u
 Esrc/main/java/pl/mazurek/application/GeneticAlgorithmApplication.java,2\7\27730c7b1a958c6a9a3afb9ff79c64425861c1d3
+?
+settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
+;
+gradlew.bat,2\a\2a45a911a8f1836b0b6c5b758962572012d8f8c3
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e

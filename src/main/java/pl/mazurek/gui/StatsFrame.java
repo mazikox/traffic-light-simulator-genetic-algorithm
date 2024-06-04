@@ -96,6 +96,9 @@ public class StatsFrame extends JFrame {
     }
 
     private void updateStats(TrafficLightSimulationApplication simulationApplication) {
+        if(simulationApplication.getIntersectionService() == null){
+            return;
+        }
         carsWaitingNorthToSouth = simulationApplication.getIntersectionService().getIntersection().getCarsNorthToSouthOnIntersection();
         carsWaitingEastToWest = simulationApplication.getIntersectionService().getIntersection().getCarsEastToWestOnIntersection();
         carsWaitingSouthToNorth = simulationApplication.getIntersectionService().getIntersection().getCarsSouthToNorthOnIntersection();
@@ -114,22 +117,22 @@ public class StatsFrame extends JFrame {
         carsPassedSouthToWest = simulationApplication.getIntersectionService().getIntersection().getCarsPassedSouthToWest();
         carsPassedWestToNorth = simulationApplication.getIntersectionService().getIntersection().getCarsPassedWestToNorth();
 
-        carsWaitingNorthToSouthLabel.setText("carsWaitingNorthToSouthLabel: " + carsWaitingNorthToSouth);
-        carsWaitingEastToWestLabel.setText("carsWaitingEastToWestLabel: " + carsWaitingEastToWest);
-        carsWaitingSouthToNorthLabel.setText("carsWaitingSouthToNorthLabel: " + carsWaitingSouthToNorth);
-        carsWaitingWestToEastLabel.setText("carsWaitingWestToEastLabel: " + carsWaitingWestToEast);
-        carsWaitingNorthToEastLabel.setText("carsWaitingNorthToEastLabel: " + carsWaitingNorthToEast);
-        carsWaitingEastToSouthLabel.setText("carsWaitingEastToSouthLabel: " + carsWaitingEastToSouth);
-        carsWaitingSouthToWestLabel.setText("carsWaitingSouthToWestLabel: " + carsWaitingSouthToWest);
-        carsWaitingWestToNorthLabel.setText("carsWaitingWestToNorthLabel: " + carsWaitingWestToNorth);
+        carsWaitingNorthToSouthLabel.setText("Cars waiting from North to South: " + carsWaitingNorthToSouth);
+        carsWaitingEastToWestLabel.setText("Cars waiting from East to West: " + carsWaitingEastToWest);
+        carsWaitingSouthToNorthLabel.setText("Cars waiting from South to North: " + carsWaitingSouthToNorth);
+        carsWaitingWestToEastLabel.setText("Cars waiting from West to East: " + carsWaitingWestToEast);
+        carsWaitingNorthToEastLabel.setText("Cars waiting from North to East: " + carsWaitingNorthToEast);
+        carsWaitingEastToSouthLabel.setText("Cars waiting from East to South: " + carsWaitingEastToSouth);
+        carsWaitingSouthToWestLabel.setText("Cars waiting from South to West: " + carsWaitingSouthToWest);
+        carsWaitingWestToNorthLabel.setText("Cars waiting from West to North: " + carsWaitingWestToNorth);
 
-        carsPassedNorthToSouthLabel.setText("carsPassedNorthToSouthLabel: " + carsPassedNorthToSouth);
-        carsPassedEastToWestLabel.setText("carsPassedEastToWestLabel: " + carsPassedEastToWest);
-        carsPassedSouthToNorthLabel.setText("carsPassedSouthToNorthLabel: " + carsPassedSouthToNorth);
-        carsPassedWestToEastLabel.setText("carsPassedWestToEastLabel: " + carsPassedWestToEast);
-        carsPassedNorthToEastLabel.setText("carsPassedNorthToEastLabel:" + carsPassedNorthToEast);
-        carsPassedEastToSouthLabel.setText("carsPassedEastToSouthLabel: " + carsPassedEastToSouth);
-        carsPassedSouthToWestLabel.setText("carsPassedSouthToWestLabel: " + carsPassedSouthToWest);
-        carsPassedWestToNorthLabel.setText("carsPassedWestToNorthLabel: " + carsPassedWestToNorth);
+        carsPassedNorthToSouthLabel.setText("Cars passed from North to South: " + carsPassedNorthToSouth);
+        carsPassedEastToWestLabel.setText("Cars passed from East to West: " + carsPassedEastToWest);
+        carsPassedSouthToNorthLabel.setText("Cars passed from South to North: " + carsPassedSouthToNorth);
+        carsPassedWestToEastLabel.setText("Cars passed from West to East: " + carsPassedWestToEast);
+        carsPassedNorthToEastLabel.setText("Cars passed from North to East:" + carsPassedNorthToEast);
+        carsPassedEastToSouthLabel.setText("Cars passed from East to South: " + carsPassedEastToSouth);
+        carsPassedSouthToWestLabel.setText("Cars passed from South to West: " + carsPassedSouthToWest);
+        carsPassedWestToNorthLabel.setText("Cars passed from West to North: " + carsPassedWestToNorth);
     }
 }

@@ -1,23 +1,15 @@
 
+€
+java:S1488"]Immediately return this expression instead of assigning it to the temporary variable "value".(ÀŞ —ÿÿÿÿÿ8áú–ş1
 t
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(Üş®Ùùÿÿÿÿ8ÚÛıè÷1
-`
-java:S1854/">Remove this useless assignment to local variable "crossPoint".(ß±©–ùÿÿÿÿ8ÚÛıè÷1
-Q
-java:S1481/"/Remove this unused "crossPoint" local variable.(ß±©–ùÿÿÿÿ8İÛıè÷1
-;
-java:S2119t"Save and re-use this "Random".(Ûá½×8åÛıè÷1
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(Üş®Ùùÿÿÿÿ8ÚÛıè÷1
 @
-java:S2119{"Save and re-use this "Random".(ı„©§úÿÿÿÿ8ãÃ•ø1
+java:S2119n"Save and re-use this "Random".(šûÁÿÿÿÿÿ8¦ò•ø1
+:
+java:S2119u"Save and re-use this "Random".(¼İÅf8ÊáÈ—ş1
+<
+java:S2119•"Save and re-use this "Random".(ˆÓ–å8ÌáÈ—ş1
 A
-java:S2119œ"Save and re-use this "Random".(¼Ïãúÿÿÿÿ8¦ò•ø1
-a
-java:S1128"DRemove this unused import 'java.util.concurrent.ExecutionException'.(¡£ØÍ8Ä‰–ø1
-c
-java:S1128"ARemove this unused import 'java.util.concurrent.ExecutorService'.(æ÷–£ùÿÿÿÿ8Å‰–ø1
-]
-java:S1128";Remove this unused import 'java.util.concurrent.Executors'.(äåÒÛÿÿÿÿÿ8Å‰–ø1
-Z
-java:S1128"8Remove this unused import 'java.util.concurrent.Future'.(á¬øíıÿÿÿÿ8Å‰–ø1
-h
-java:S1128	"FRemove this unused import 'java.util.concurrent.atomic.AtomicInteger'.(¿êäœøÿÿÿÿ8Å‰–ø1
+java:S2119™"Save and re-use this "Random".(¼Ïãúÿÿÿÿ8ÔË—ş1
+O
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8®Æ—ş1

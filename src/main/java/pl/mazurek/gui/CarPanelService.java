@@ -14,11 +14,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class CarPanelService extends JPanel{
+public class CarPanelService extends JPanel {
     private TrafficLightSimulationApplication simulationApplication;
     private List<Car> cars;
-    private int carWidth = 30;
-    private int carHeight = 40;
 
 
     public CarPanelService(TrafficLightSimulationApplication simulationApplication) {
@@ -27,7 +25,7 @@ public class CarPanelService extends JPanel{
         setLayout(null);
 
         JButton statsButton = new JButton("Stats");
-        statsButton.setBounds(10,10,65,25);
+        statsButton.setBounds(10, 10, 65, 25);
         statsButton.addActionListener(e -> new StatsFrame(simulationApplication));
 
         JLabel speedTextLabel = new JLabel("SPEED:");
@@ -59,7 +57,7 @@ public class CarPanelService extends JPanel{
                 synchronized (getCars()) {
                     if (simulationApplication.getIntersectionService().getIntersection().getCarsSouthToNorthForRender() > 0) {
                         Car previousCar = getLastCarFromDirection(Direction.SOUTH, Direction.NORTH);
-                        int x = 500;
+                        int x = 550;
                         int y = 750;
                         // jesli samochod jest poza ekranem
                         if (previousCar != null && previousCar.y > 700) {
@@ -71,7 +69,7 @@ public class CarPanelService extends JPanel{
                     }
                     if (simulationApplication.getIntersectionService().getIntersection().getCarsNorthToSouthForRender() > 0) {
                         Car previousCar = getLastCarFromDirection(Direction.NORTH, Direction.SOUTH);
-                        int x = 430;
+                        int x = 420;
                         int y = -50;
                         if (previousCar != null && previousCar.y < 0) {
                             y = previousCar.y - 100;
@@ -82,7 +80,7 @@ public class CarPanelService extends JPanel{
                     if (simulationApplication.getIntersectionService().getIntersection().getCarsWestToEastForRender() > 0) {
                         Car previousCar = getLastCarFromDirection(Direction.WEST, Direction.EAST);
                         int x = -50;
-                        int y = 380;
+                        int y = 395;
                         if (previousCar != null && previousCar.x < 0) {
                             x = previousCar.x - 100;
                         }
@@ -92,7 +90,7 @@ public class CarPanelService extends JPanel{
                     if (simulationApplication.getIntersectionService().getIntersection().getCarsEastToWestForRender() > 0) {
                         Car previousCar = getLastCarFromDirection(Direction.EAST, Direction.WEST);
                         int x = 920;
-                        int y = 320;
+                        int y = 300;
                         if (previousCar != null && previousCar.x > 900) {
                             x = previousCar.x + 100;
                         }
@@ -102,7 +100,7 @@ public class CarPanelService extends JPanel{
 
                     if (simulationApplication.getIntersectionService().getIntersection().getCarsSouthToWestForRender() > 0) {
                         Car previousCar = getLastCarFromDirection(Direction.SOUTH, Direction.WEST);
-                        int x = 450;
+                        int x = 505;
                         int y = 750;
                         if (previousCar != null && previousCar.y > 700) {
                             y = previousCar.y + 100;
@@ -113,7 +111,7 @@ public class CarPanelService extends JPanel{
                     if (simulationApplication.getIntersectionService().getIntersection().getCarsWestToNorthForRender() > 0) {
                         Car previousCar = getLastCarFromDirection(Direction.WEST, Direction.NORTH);
                         int x = -50;
-                        int y = 430;
+                        int y = 365;
                         if (previousCar != null && previousCar.x < 0) {
                             x = previousCar.x - 100;
                         }
@@ -122,7 +120,7 @@ public class CarPanelService extends JPanel{
                     }
                     if (simulationApplication.getIntersectionService().getIntersection().getCarsNorthToEastForRender() > 0) {
                         Car previousCar = getLastCarFromDirection(Direction.NORTH, Direction.EAST);
-                        int x = 480;
+                        int x = 470;
                         int y = -50;
                         if (previousCar != null && previousCar.y < 0) {
                             y = previousCar.y - 100;
@@ -133,7 +131,7 @@ public class CarPanelService extends JPanel{
                     if (simulationApplication.getIntersectionService().getIntersection().getCarsEastToSouthForRender() > 0) {
                         Car previousCar = getLastCarFromDirection(Direction.EAST, Direction.SOUTH);
                         int x = 920;
-                        int y = 380;
+                        int y = 330;
                         if (previousCar != null && previousCar.x > 900) {
                             x = previousCar.x + 100;
                         }
@@ -159,34 +157,34 @@ public class CarPanelService extends JPanel{
 
                 Car previousCar = getLastCarFromDirectionInFront(Direction.SOUTH, Direction.WEST, car);
 
-                if((previousCar == null || (previousCar.y + 100 > car.x) || car.y < 450)){
-                    car.y -= 3 * simulationApplication.speed;
+                if ((previousCar == null || (previousCar.y + 100 > car.x) || car.y < 450)) {
+                    car.y -= 5 * simulationApplication.speed;
                 }
             } else if ((car.getDirection() == Direction.SOUTH && car.getStartPosition() == Direction.NORTH) &&
                     (simulationApplication.getIntersectionService().intersection.getLightSouthToNorthAndNorthToSouth() == Light.GREEN || car.y > 230)) {
-                car.y += 3 * simulationApplication.speed;
+                car.y += 5 * simulationApplication.speed;
             } else if ((car.getDirection() == Direction.WEST && car.getStartPosition() == Direction.EAST) &&
                     (simulationApplication.getIntersectionService().intersection.getLightWestToEastAndEastToWest() == Light.GREEN || car.x < 780)) {
-                car.x -= 3 * simulationApplication.speed;
+                car.x -= 5 * simulationApplication.speed;
             } else if ((car.getDirection() == Direction.EAST && car.getStartPosition() == Direction.WEST)
-                    && (simulationApplication.getIntersectionService().intersection.getLightWestToEastAndEastToWest() == Light.GREEN || car.x > 400)) {
-                car.x += 3 * simulationApplication.speed;
+                    && (simulationApplication.getIntersectionService().intersection.getLightWestToEastAndEastToWest() == Light.GREEN || car.x > 380)) {
+                car.x += 5 * simulationApplication.speed;
             } else if ((car.getDirection() == Direction.WEST && car.getStartPosition() == Direction.SOUTH)
                     && (simulationApplication.getIntersectionService().intersection.getLightSouthToWestAndNorthToEast() == Light.GREEN || car.y < 430)) {
 
                 Car previousCar = getLastCarFromDirectionInFront(Direction.SOUTH, Direction.WEST, car);
 
-                if (car.y > 330  && (previousCar == null || (previousCar.y - 100 < car.y) || car.y < 430)) {
+                if (car.y > 330 && (previousCar == null || (previousCar.y - 100 < car.y) || car.y < 430)) {
                     car.y -= 5 * simulationApplication.speed;
                 } else {
                     car.x -= 5 * simulationApplication.speed;
                 }
             } else if ((car.getDirection() == Direction.NORTH && car.getStartPosition() == Direction.WEST)
-                    && (simulationApplication.getIntersectionService().intersection.getLightWestToNorthAndEastToSouth() == Light.GREEN || car.x > 400)) {
+                    && (simulationApplication.getIntersectionService().intersection.getLightWestToNorthAndEastToSouth() == Light.GREEN || car.x > 380)) {
 
                 Car previousCar = getLastCarFromDirectionInFront(Direction.WEST, Direction.NORTH, car);
 
-                if (car.x < 480 && (previousCar == null || (previousCar.x + 100 > car.x) || car.x > 400)) {
+                if (car.x < 500 && (previousCar == null || (previousCar.x + 100 > car.x) || car.x > 380)) {
                     car.x += 5 * simulationApplication.speed;
                 } else {
                     car.y -= 5 * simulationApplication.speed;
@@ -196,7 +194,7 @@ public class CarPanelService extends JPanel{
 
                 Car previousCar = getLastCarFromDirectionInFront(Direction.NORTH, Direction.EAST, car);
 
-                if (car.y < 350 && (previousCar == null || (previousCar.y + 100 > car.y) || car.y > 230)) {
+                if (car.y < 355 && (previousCar == null || (previousCar.y + 100 > car.y) || car.y > 230)) {
                     car.y += 5 * simulationApplication.speed;
                 } else {
                     car.x += 5 * simulationApplication.speed;
@@ -206,7 +204,7 @@ public class CarPanelService extends JPanel{
 
                 Car previousCar = getLastCarFromDirectionInFront(Direction.EAST, Direction.SOUTH, car);
 
-                if (car.x > 450 && (previousCar == null || (previousCar.x - 100 < car.x) || car.x < 780) ) {
+                if (car.x > 450 && (previousCar == null || (previousCar.x - 100 < car.x) || car.x < 780)) {
                     car.x -= 5 * simulationApplication.speed;
                 } else if (car.x <= 450) {
                     car.y += 5 * simulationApplication.speed;
@@ -261,11 +259,43 @@ public class CarPanelService extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         try {
-            Image img = ImageIO.read(new File("src/main/resources/images/car.png"));
+            Image imgCarUp = ImageIO.read(new File("src/main/resources/images/carUp.png"));
+            Image imgCarDown = ImageIO.read(new File("src/main/resources/images/carDown.png"));
+            Image imgCarLeft = ImageIO.read(new File("src/main/resources/images/carLeft.png"));
+            Image imgCarRight = ImageIO.read(new File("src/main/resources/images/carRight.png"));
             Image imgBackground = ImageIO.read(new File("src/main/resources/images/intersection.jpg"));
             g.drawImage(imgBackground, 0, 0, 1000, 700, this);
             for (Car car : cars) {
-                g.drawImage(img, car.x, car.y, carWidth, carHeight, this);
+                switch (car.getStartPosition()) {
+                    case NORTH -> {
+                        if (car.y < 350 || car.getDirection() == Direction.SOUTH) {
+                            g.drawImage(imgCarDown, car.x, car.y, 35, 40, this);
+                        } else {
+                            g.drawImage(imgCarRight, car.x, car.y, 40, 35, this);
+                        }
+                    }
+                    case SOUTH -> {
+                        if (car.y > 330 || car.getDirection() == Direction.NORTH) {
+                            g.drawImage(imgCarUp, car.x, car.y, 35, 40, this);
+                        }else {
+                            g.drawImage(imgCarLeft, car.x, car.y, 40, 35, this);
+                        }
+                    }
+                    case WEST -> {
+                        if(car.x < 480 || car.getDirection() == Direction.EAST){
+                            g.drawImage(imgCarRight, car.x, car.y, 40, 35, this);
+                        }else{
+                            g.drawImage(imgCarUp, car.x, car.y, 35, 40, this);
+                        }
+                    }
+                    case EAST -> {
+                        if(car.x > 450 || car.getDirection() == Direction.WEST){
+                            g.drawImage(imgCarLeft, car.x, car.y, 40, 35, this);
+                        }else{
+                            g.drawImage(imgCarDown, car.x, car.y, 35, 40, this);
+                        }
+                    }
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

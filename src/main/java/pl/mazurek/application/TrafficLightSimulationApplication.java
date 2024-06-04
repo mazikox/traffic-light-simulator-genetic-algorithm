@@ -6,7 +6,7 @@ public class TrafficLightSimulationApplication {
 
     private IntersectionService intersectionService;
 
-    public int speed = 100;
+    public int speed = 10;
 
     public int CZAS_DOL_GORA = 3000;
     public int CZAS_LEWO_PRAWO = 1000;
@@ -26,13 +26,13 @@ public class TrafficLightSimulationApplication {
 
 
     public void start() {
-        if(!isActive){
+        if (!isActive) {
             simulation();
         }
     }
 
-    public void stop(){
-        if(isActive){
+    public void stop() {
+        if (isActive) {
             isActive = false;
             intersectionService.reset();
         }
@@ -62,8 +62,8 @@ public class TrafficLightSimulationApplication {
 
                 handleArrivalCarAtIntersection(tick);
                 handleTrafficLightChange(intersectionService, CZAS_DOL_GORA, CZAS_LEWO_PRAWO, CZAS_DOL_LEWO, CZAS_LEWO_GORA);
-                if(isUsedByAlgorithm){
-                    if(tick > 200){
+                if (isUsedByAlgorithm) {
+                    if (tick > 200) {
                         wyswietlWartosciDoUsuniecia(tick);
                         return intersectionService.getValue();
                     }
@@ -75,16 +75,15 @@ public class TrafficLightSimulationApplication {
     }
 
     private void deleteCarByAlgorith(int tick) {
-        if(tick % countTimeWithSpeed(100) == 0){
+        if (tick % countTimeWithSpeed(100) == 0) {
             intersectionService.deleteCarForAlgorithm(this);
         }
     }
 
-    private void wyswietlWartosciDoUsuniecia(int tick){
-
-            System.out.println("Value: " + intersectionService.getValue());
-            System.out.println(intersectionService.getIntersection());
-
+    private void wyswietlWartosciDoUsuniecia(int tick) {
+        System.out.println("Value: " + intersectionService.getValue());
+        System.out.println(intersectionService.getIntersection());
+        System.out.println("dol-gora: " + CZAS_DOL_GORA + " lewo-prawo: " + CZAS_LEWO_PRAWO + " dol-lewo: " + CZAS_DOL_LEWO + " lewo-gora: " + CZAS_LEWO_GORA);
     }
 
     private void handleTrafficLightChange(IntersectionService intersectionService, int czasDolGora, int czasLewoPrawo, int czasDolLewo, int czasLewoGora) {
@@ -110,7 +109,6 @@ public class TrafficLightSimulationApplication {
             }
         }
     }
-
 
 
     private void handleArrivalCarAtIntersection(int tick) {
@@ -150,7 +148,7 @@ public class TrafficLightSimulationApplication {
 
 
     private int countTimeWithSpeed(int time) {
-        if(speed < 1){
+        if (speed < 1) {
             speed = 1;
         }
         return time / speed;

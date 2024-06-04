@@ -2,49 +2,43 @@ package pl.mazurek.application;
 
 import java.util.Arrays;
 import java.util.Random;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class GeneticAlgorithmApplication {
 
-    private static final int LICZBA_POPULACJI = 6;
-    private static final int LICZBA_ITERACJI = 10;
-    private static final double PRAWDOPODOBIENSTWO_MUTACJI = 0.3;
+    private static final int POPULATION = 6;
+    private static final int GENERATION = 10;
+    private static final double PRAWDOPODOBIENSTWO_MUTACJI = 0.1;
 
     public void startAlgorithm() {
         System.out.println("Started algorithm");
-        int[] wyniki = new int[LICZBA_POPULACJI];
-        int[] timeSouthToNorthAndNorthToSouth = new int[LICZBA_POPULACJI];
-        int[] timeWestToEastAndEastToWest = new int[LICZBA_POPULACJI];
-        int[] timeSouthToWestAndNorthToEast = new int[LICZBA_POPULACJI];
-        int[] timeWestToNorthAndEastToSouth = new int[LICZBA_POPULACJI];
+        int[] results = new int[POPULATION];
+        int[] timeSouthToNorthAndNorthToSouth = new int[POPULATION];
+        int[] timeWestToEastAndEastToWest = new int[POPULATION];
+        int[] timeSouthToWestAndNorthToEast = new int[POPULATION];
+        int[] timeWestToNorthAndEastToSouth = new int[POPULATION];
 
         // creating population
-        for (int i = 0; i < LICZBA_POPULACJI; i++) {
-            timeSouthToNorthAndNorthToSouth[i] = losujCzas();
-            timeWestToEastAndEastToWest[i] = losujCzas();
-            timeSouthToWestAndNorthToEast[i] = losujCzas();
-            timeWestToNorthAndEastToSouth[i] = losujCzas();
-            System.out.println("wyniki");
-            wyniki[i] = startSimulation(timeSouthToNorthAndNorthToSouth[i], timeWestToEastAndEastToWest[i], timeSouthToWestAndNorthToEast[i], timeWestToNorthAndEastToSouth[i]);
+        for (int i = 0; i < POPULATION; i++) {
+            timeSouthToNorthAndNorthToSouth[i] = generateTime();
+            timeWestToEastAndEastToWest[i] = generateTime();
+            timeSouthToWestAndNorthToEast[i] = generateTime();
+            timeWestToNorthAndEastToSouth[i] = generateTime();
+            System.out.println("results");
+            results[i] = startSimulation(timeSouthToNorthAndNorthToSouth[i], timeWestToEastAndEastToWest[i], timeSouthToWestAndNorthToEast[i], timeWestToNorthAndEastToSouth[i]);
         }
 
-        for (int i = 0; i < LICZBA_ITERACJI; i++) {
-            int[] noweWyniki = new int[LICZBA_POPULACJI];
-            int[] newTimeSouthToNorthAndNorthToSouth = new int[LICZBA_POPULACJI];
-            int[] newTimeWestToEastAndEastToWest = new int[LICZBA_POPULACJI];
-            int[] newTimeSouthToWestAndNorthToEast = new int[LICZBA_POPULACJI];
-            int[] newTimeWestToNorthAndEastToSouth = new int[LICZBA_POPULACJI];
+        for (int i = 0; i < GENERATION; i++) {
+            int[] newResults = new int[POPULATION];
+            int[] newTimeSouthToNorthAndNorthToSouth = new int[POPULATION];
+            int[] newTimeWestToEastAndEastToWest = new int[POPULATION];
+            int[] newTimeSouthToWestAndNorthToEast = new int[POPULATION];
+            int[] newTimeWestToNorthAndEastToSouth = new int[POPULATION];
 
-            for (int j = 0; j < LICZBA_POPULACJI; j += 2) {
-                int parent1 = selectParent(wyniki);
-                int parent2 = selectParent(wyniki);
+            for (int j = 0; j < POPULATION; j += 2) {
+                int parent1 = selectParent(results);
+                int parent2 = selectParent(results);
 
                 // crossing
-                int crossPoint = 10;
                 newTimeSouthToNorthAndNorthToSouth[j] = crossParent(timeSouthToNorthAndNorthToSouth[parent1], timeSouthToNorthAndNorthToSouth[parent2]);
                 newTimeWestToEastAndEastToWest[j] = crossParent(timeWestToEastAndEastToWest[parent1], timeWestToEastAndEastToWest[parent2]);
                 newTimeSouthToWestAndNorthToEast[j] = crossParent(timeSouthToWestAndNorthToEast[parent1], timeSouthToWestAndNorthToEast[parent2]);
@@ -82,8 +76,8 @@ public class GeneticAlgorithmApplication {
                 }
 
                 // rating kids
-                noweWyniki[j] = startSimulation(newTimeSouthToNorthAndNorthToSouth[j], newTimeWestToEastAndEastToWest[j], newTimeSouthToWestAndNorthToEast[j], newTimeWestToNorthAndEastToSouth[j]);
-                noweWyniki[j + 1] = startSimulation(newTimeSouthToNorthAndNorthToSouth[j + 1], newTimeWestToEastAndEastToWest[j + 1], newTimeSouthToWestAndNorthToEast[j + 1], newTimeWestToNorthAndEastToSouth[j + 1]);
+                newResults[j] = startSimulation(newTimeSouthToNorthAndNorthToSouth[j], newTimeWestToEastAndEastToWest[j], newTimeSouthToWestAndNorthToEast[j], newTimeWestToNorthAndEastToSouth[j]);
+                newResults[j + 1] = startSimulation(newTimeSouthToNorthAndNorthToSouth[j + 1], newTimeWestToEastAndEastToWest[j + 1], newTimeSouthToWestAndNorthToEast[j + 1], newTimeWestToNorthAndEastToSouth[j + 1]);
             }
 
             // old population replaced by new
@@ -91,10 +85,10 @@ public class GeneticAlgorithmApplication {
             timeWestToEastAndEastToWest = newTimeWestToEastAndEastToWest;
             timeSouthToWestAndNorthToEast = newTimeSouthToWestAndNorthToEast;
             timeWestToNorthAndEastToSouth = newTimeWestToNorthAndEastToSouth;
-            wyniki = noweWyniki;
+            results = newResults;
         }
 
-        int najlepszyIndex = findBestIndex(wyniki);
+        int najlepszyIndex = findBestIndex(results);
         System.out.println("timeSouthToNorthAndNorthToSouth: " + timeSouthToNorthAndNorthToSouth[najlepszyIndex]);
         System.out.println("timeWestToEastAndEastToWest: " + timeWestToEastAndEastToWest[najlepszyIndex]);
         System.out.println("timeSouthToWestAndNorthToEast: " + timeSouthToWestAndNorthToEast[najlepszyIndex]);
@@ -113,29 +107,32 @@ public class GeneticAlgorithmApplication {
     }
 
     private int mutate(int time) {
-        int mutationAmount = new Random().nextInt(5500) - 2000;  // Smaller mutation range
+        int mutationAmount = new Random().nextInt(5500) + 1000;
         return time + mutationAmount;
     }
 
 
-    private int selectParent(int[] wyniki) {
-        int totalFitness = Arrays.stream(wyniki).sum();
-        int randomPoint = new Random().nextInt(totalFitness);
-        int runningSum = 0;
 
-        for (int i = 0; i < wyniki.length; i++) {
-            runningSum += wyniki[i];
-            if (runningSum >= randomPoint) {
-                return i;
+    private int selectParent(int[] wyniki) {
+        Random random = new Random();
+        int tournamentSize = 3;
+        int bestIndex = random.nextInt(wyniki.length);
+
+        for (int i = 1; i < tournamentSize; i++) {
+            int randomIndex = random.nextInt(wyniki.length);
+            if (wyniki[randomIndex] > wyniki[bestIndex]) {
+                bestIndex = randomIndex;
             }
         }
-        return wyniki.length - 1;
+
+        return bestIndex;
     }
 
 
     private int startSimulation(int southNorth, int westEast, int southWest, int westNorth) {
         // Initialize simulation application with given timings
         TrafficLightSimulationApplication simulationApplication = new TrafficLightSimulationApplication();
+        simulationApplication.speed = 100;
         simulationApplication.CZAS_DOL_GORA = southNorth;
         simulationApplication.CZAS_LEWO_PRAWO = westEast;
         simulationApplication.CZAS_DOL_LEWO = southWest;
@@ -143,16 +140,16 @@ public class GeneticAlgorithmApplication {
         simulationApplication.isUsedByAlgorithm = true;
 
         // Run simulation and calculate fitness as the inverse of the total waiting time
-        int totalWaitingTime = simulationApplication.simulation();
-        return 1000000 / totalWaitingTime;  // Higher fitness for lower waiting times
+        int value = simulationApplication.simulation();
+        return value;  // Higher fitness for lower waiting times
     }
 
 
     private int crossParent(int rodzic1, int rodzic2) {
-        return (rodzic1 + rodzic2) / 2;
+        return (new Random().nextBoolean()) ? rodzic1 : rodzic2;
     }
 
-    private int losujCzas() {
+    private int generateTime() {
         return new Random().nextInt(6000) + 1000;
     }
 }
