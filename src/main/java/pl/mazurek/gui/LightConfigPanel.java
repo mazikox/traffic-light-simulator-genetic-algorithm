@@ -3,10 +3,9 @@ package pl.mazurek.gui;
 import pl.mazurek.application.TrafficLightSimulationApplication;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
 
-public class LightConfigPanel extends JPanel implements ActionListener {
+public class LightConfigPanel extends JPanel {
 
     private JTextField southToNorthTextField;
     private JTextField southToWestTextField;
@@ -18,44 +17,63 @@ public class LightConfigPanel extends JPanel implements ActionListener {
     public LightConfigPanel(TrafficLightSimulationApplication simulationApplication) {
         this.simulationApplication = simulationApplication;
 
-        setLayout(null);
+        setLayout(new BorderLayout());
 
-        southToNorthTextField = new JTextField(String.valueOf(simulationApplication.CZAS_DOL_GORA));
-        southToWestTextField = new JTextField(String.valueOf(simulationApplication.CZAS_DOL_LEWO));
-        westToEastTextField = new JTextField(String.valueOf(simulationApplication.CZAS_LEWO_PRAWO));
-        westToNorthTextField = new JTextField(String.valueOf(simulationApplication.CZAS_LEWO_GORA));
+        JLabel headerLabel = new JLabel("Traffic Light Configuration", JLabel.CENTER);
+        headerLabel.setFont(new Font("Serif", Font.BOLD, 24));
+        add(headerLabel, BorderLayout.NORTH);
 
-        southToNorthTextField.setBounds(700,650, 100, 30);
-        southToWestTextField.setBounds(550,650, 100, 30);
-        westToEastTextField.setBounds(10,500, 100, 30);
-        westToNorthTextField.setBounds(10,400, 100, 30);
+        JPanel timeSettingsPanel = new JPanel();
+        timeSettingsPanel.setLayout(new GridLayout(4, 2, 10, 10));
 
-        southToNorthTextField.addActionListener(this);
-        southToWestTextField.addActionListener(this);
-        westToEastTextField.addActionListener(this);
-        westToNorthTextField.addActionListener(this);
+        timeSettingsPanel.add(new JLabel("South to North:"));
+        southToNorthTextField = new JTextField(String.valueOf(simulationApplication.southToNorthTimeLight));
+        timeSettingsPanel.add(southToNorthTextField);
 
+        timeSettingsPanel.add(new JLabel("South to West:"));
+        southToWestTextField = new JTextField(String.valueOf(simulationApplication.southToWestTimeLight));
+        timeSettingsPanel.add(southToWestTextField);
 
-        add(southToNorthTextField);
-        add(southToWestTextField);
-        add(westToEastTextField);
-        add(westToNorthTextField);
+        timeSettingsPanel.add(new JLabel("West to East:"));
+        westToEastTextField = new JTextField(String.valueOf(simulationApplication.westToEastTimeLight));
+        timeSettingsPanel.add(westToEastTextField);
+
+        timeSettingsPanel.add(new JLabel("West to North:"));
+        westToNorthTextField = new JTextField(String.valueOf(simulationApplication.westToNorthTimeLight));
+        timeSettingsPanel.add(westToNorthTextField);
+
+        add(timeSettingsPanel, BorderLayout.CENTER);
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
+
+        JButton saveButton = new JButton("Save");
+        saveButton.addActionListener(e -> saveSettings());
+        buttonPanel.add(saveButton);
+
+        JButton cancelButton = new JButton("Cancel");
+        cancelButton.addActionListener(e -> cancelSettings());
+        buttonPanel.add(cancelButton);
+
+        add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JTextField source = (JTextField) e.getSource();
-        String newText = source.getText();
-        source.setText(newText);
-
-        if (source == southToNorthTextField) {
-            simulationApplication.CZAS_DOL_GORA = Integer.parseInt(newText);
-        } else if (source == southToWestTextField) {
-            simulationApplication.CZAS_DOL_LEWO = Integer.parseInt(newText);
-        } else if (source == westToEastTextField) {
-            simulationApplication.CZAS_LEWO_PRAWO = Integer.parseInt(newText);
-        } else if (source == westToNorthTextField) {
-            simulationApplication.CZAS_LEWO_GORA = Integer.parseInt(newText);
+    private void saveSettings() {
+        try {
+            simulationApplication.southToNorthTimeLight = Integer.parseInt(southToNorthTextField.getText());
+            simulationApplication.southToWestTimeLight = Integer.parseInt(southToWestTextField.getText());
+            simulationApplication.westToEastTimeLight = Integer.parseInt(westToEastTextField.getText());
+            simulationApplication.westToNorthTimeLight = Integer.parseInt(westToNorthTextField.getText());
+            JOptionPane.showMessageDialog(this, "Settings saved successfully.");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Not a number!", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    private void cancelSettings() {
+        southToNorthTextField.setText(String.valueOf(simulationApplication.southToNorthTimeLight));
+        southToWestTextField.setText(String.valueOf(simulationApplication.southToWestTimeLight));
+        westToEastTextField.setText(String.valueOf(simulationApplication.westToEastTimeLight));
+        westToNorthTextField.setText(String.valueOf(simulationApplication.westToNorthTimeLight));
     }
 }

@@ -8,41 +8,39 @@ import pl.mazurek.entity.Light;
 public class IntersectionService {
 
     public Intersection intersection;
-    private int kolejnoscSwiatel = 0;
+    private int orderOfLights = 0;
     int value = 0;
 
 
     public void changeLight() {
-        if (intersection.getLightSouthToNorthAndNorthToSouth() == Light.GREEN && kolejnoscSwiatel == 0) {
+        if (intersection.getLightSouthToNorthAndNorthToSouth() == Light.GREEN && orderOfLights == 0) {
             intersection.setLightSouthToNorthAndNorthToSouth(Light.RED);
             intersection.setLightSouthToWestAndNorthToEast(Light.GREEN);
             intersection.setLightWestToEastAndEastToWest(Light.RED);
             intersection.setLightWestToNorthAndEastToSouth(Light.RED);
-            kolejnoscSwiatel = 1;
-        } else if (intersection.getLightSouthToWestAndNorthToEast() == Light.GREEN && kolejnoscSwiatel == 1) {
+            orderOfLights = 1;
+        } else if (intersection.getLightSouthToWestAndNorthToEast() == Light.GREEN && orderOfLights == 1) {
             intersection.setLightSouthToNorthAndNorthToSouth(Light.RED);
             intersection.setLightSouthToWestAndNorthToEast(Light.RED);
             intersection.setLightWestToEastAndEastToWest(Light.GREEN);
             intersection.setLightWestToNorthAndEastToSouth(Light.RED);
-            kolejnoscSwiatel = 2;
-        } else if (intersection.getLightWestToEastAndEastToWest() == Light.GREEN && kolejnoscSwiatel == 2) {
+            orderOfLights = 2;
+        } else if (intersection.getLightWestToEastAndEastToWest() == Light.GREEN && orderOfLights == 2) {
             intersection.setLightSouthToNorthAndNorthToSouth(Light.RED);
             intersection.setLightSouthToWestAndNorthToEast(Light.RED);
             intersection.setLightWestToEastAndEastToWest(Light.RED);
             intersection.setLightWestToNorthAndEastToSouth(Light.GREEN);
-            kolejnoscSwiatel = 3;
-        } else if (intersection.getLightWestToNorthAndEastToSouth() == Light.GREEN && kolejnoscSwiatel == 3) {
+            orderOfLights = 3;
+        } else if (intersection.getLightWestToNorthAndEastToSouth() == Light.GREEN && orderOfLights == 3) {
             intersection.setLightSouthToNorthAndNorthToSouth(Light.GREEN);
             intersection.setLightSouthToWestAndNorthToEast(Light.RED);
             intersection.setLightWestToEastAndEastToWest(Light.RED);
             intersection.setLightWestToNorthAndEastToSouth(Light.RED);
-            kolejnoscSwiatel = 0;
+            orderOfLights = 0;
         }
-
     }
 
     public void deleteCar(Car car) {
-
         if (car.getStartPosition() == Direction.SOUTH && car.getDirection() == Direction.NORTH) {
             intersection.setCarsSouthToNorthOnIntersection(intersection.getCarsSouthToNorthOnIntersection() - 1);
             intersection.setCarsPassedSouthToNorth(intersection.getCarsPassedSouthToNorth() + 1);
@@ -74,25 +72,41 @@ public class IntersectionService {
         if (intersection.getCarsSouthToNorthOnIntersection() != 0 && intersection.getLightSouthToNorthAndNorthToSouth() == Light.GREEN) {
             intersection.setCarsSouthToNorthOnIntersection(intersection.getCarsSouthToNorthOnIntersection() - 1);
             intersection.setCarsPassedSouthToNorth(intersection.getCarsPassedSouthToNorth() + 1);
-            value += simulationApplication.carArrivalTimeSouthToNorth;
+            if (intersection.getCarsSouthToNorthOnIntersection() > simulationApplication.carArrivalTimeSouthToNorth / 150) {
+                value += simulationApplication.carArrivalTimeSouthToNorth / 2;
+            } else {
+                value += simulationApplication.carArrivalTimeSouthToNorth;
+            }
         }
 
         if (intersection.getCarsNorthToSouthOnIntersection() != 0 && intersection.getLightSouthToNorthAndNorthToSouth() == Light.GREEN) {
             intersection.setCarsNorthToSouthOnIntersection(intersection.getCarsNorthToSouthOnIntersection() - 1);
             intersection.setCarsPassedNorthToSouth(intersection.getCarsPassedNorthToSouth() + 1);
-            value += simulationApplication.carArrivalTimeNorthToSouth;
+            if (intersection.getCarsNorthToSouthOnIntersection() > simulationApplication.carArrivalTimeNorthToSouth / 150) {
+                value += simulationApplication.carArrivalTimeNorthToSouth / 2;
+            } else {
+                value += simulationApplication.carArrivalTimeNorthToSouth;
+            }
         }
 
         if (intersection.getCarsWestToEastOnIntersection() != 0 && intersection.getLightWestToEastAndEastToWest() == Light.GREEN) {
             intersection.setCarsWestToEastOnIntersection(intersection.getCarsWestToEastOnIntersection() - 1);
             intersection.setCarsPassedWestToEast(intersection.getCarsPassedWestToEast() + 1);
-            value += simulationApplication.carArrivalTimeSouthToNorth;
+            if (intersection.getCarsWestToEastOnIntersection() > simulationApplication.carArrivalTimeWestToEast / 150) {
+                value += simulationApplication.carArrivalTimeWestToEast / 2;
+            } else {
+                value += simulationApplication.carArrivalTimeWestToEast;
+            }
         }
 
         if (intersection.getCarsEastToWestOnIntersection() != 0 && intersection.getLightWestToEastAndEastToWest() == Light.GREEN) {
             intersection.setCarsEastToWestOnIntersection(intersection.getCarsEastToWestOnIntersection() - 1);
             intersection.setCarsPassedEastToWest(intersection.getCarsPassedEastToWest() + 1);
-            value += simulationApplication.carArrivalTimeEastToWest;
+            if (intersection.getCarsEastToWestOnIntersection() > simulationApplication.carArrivalTimeEastToWest / 150) {
+                value += simulationApplication.carArrivalTimeEastToWest / 2;
+            } else {
+                value += simulationApplication.carArrivalTimeEastToWest;
+            }
         }
 
         if (intersection.getCarsSouthToWestOnIntersection() != 0 && intersection.getLightSouthToWestAndNorthToEast() == Light.GREEN) {
@@ -163,7 +177,7 @@ public class IntersectionService {
 
     public void reset() {
         intersection.reset();
-        kolejnoscSwiatel = 0;
+        orderOfLights = 0;
     }
 
     public IntersectionService() {

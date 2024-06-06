@@ -1,16 +1,16 @@
 
 Q
-java:S1066j"/Merge this if statement with the enclosing one.(Š©şËúÿÿÿÿ8•¸›¢ü1
+java:S1066j"/Merge this if statement with the enclosing one.(äº«Éşÿÿÿÿ8•¸›¢ü1
 s
 java:S1104	"QMake speed a static final constant or non-public and provide accessors if needed.(±ÕéŒûÿÿÿÿ8–¸›¢ü1
-{
-java:S1104"YMake CZAS_DOL_GORA a static final constant or non-public and provide accessors if needed.(ú‹Æ‘üÿÿÿÿ8–¸›¢ü1
-x
-java:S1104"[Make CZAS_LEWO_PRAWO a static final constant or non-public and provide accessors if needed.(å´…×8–¸›¢ü1
-v
-java:S1104"YMake CZAS_DOL_LEWO a static final constant or non-public and provide accessors if needed.(åª¡8–¸›¢ü1
-w
-java:S1104"ZMake CZAS_LEWO_GORA a static final constant or non-public and provide accessors if needed.(ã²¥’8—¸›¢ü1
+ƒ
+java:S1104"aMake southToNorthTimeLight a static final constant or non-public and provide accessors if needed.( ²‹ÿÿÿÿÿ8ÉÄéÑş1
+|
+java:S1104"_Make westToEastTimeLight a static final constant or non-public and provide accessors if needed.(ó¨û8’¯êÑş1
+‚
+java:S1104"`Make southToWestTimeLight a static final constant or non-public and provide accessors if needed.(ˆâ‘–ûÿÿÿÿ8’¯êÑş1
+‚
+java:S1104"`Make westToNorthTimeLight a static final constant or non-public and provide accessors if needed.(ü³Ôüÿÿÿÿ8“¯êÑş1
 ˆ
 java:S1104"fMake carArrivalTimeNorthToSouth a static final constant or non-public and provide accessors if needed.(õ“”®ÿÿÿÿÿ8—¸›¢ü1
 †
@@ -29,9 +29,5 @@ java:S1104"eMake carArrivalTimeSouthToWest a static final constant or non-publ
 java:S1104"eMake carArrivalTimeWestToNorth a static final constant or non-public and provide accessors if needed.(äƒù‰ÿÿÿÿÿ8—¸›¢ü1
 z
 java:S1104"]Make isUsedByAlgorithm a static final constant or non-public and provide accessors if needed.(ãêÎã8—¸›¢ü1
-y	java:S116"XRename this field "CZAS_DOL_GORA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ú‹Æ‘üÿÿÿÿ8Ú¸›¢ü1
-v	java:S116"ZRename this field "CZAS_LEWO_PRAWO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å´…×8Ú¸›¢ü1
-t	java:S116"XRename this field "CZAS_DOL_LEWO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åª¡8Ú¸›¢ü1
-u	java:S116"YRename this field "CZAS_LEWO_GORA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã²¥’8Ú¸›¢ü1
 Ÿ
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¾¢˜¬8Ú¸›¢ü1
+java:S1186œ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¾¢˜¬8Ú¸›¢ü1

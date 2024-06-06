@@ -8,10 +8,10 @@ public class TrafficLightSimulationApplication {
 
     public int speed = 10;
 
-    public int CZAS_DOL_GORA = 3000;
-    public int CZAS_LEWO_PRAWO = 1000;
-    public int CZAS_DOL_LEWO = 1500;
-    public int CZAS_LEWO_GORA = 2500;
+    public int southToNorthTimeLight = 3000;
+    public int westToEastTimeLight = 1000;
+    public int southToWestTimeLight = 1500;
+    public int westToNorthTimeLight = 2500;
     public int carArrivalTimeNorthToSouth = 200;
     public int carArrivalTimeEastToWest = 550;
     public int carArrivalTimeSouthToNorth = 2000;
@@ -43,7 +43,7 @@ public class TrafficLightSimulationApplication {
         isActive = true;
 
         long lastTime = System.nanoTime();
-        // 1000 ticks per second
+        // 100 ticks per second
         double amountOfTicks = 100;
         double ns = 1_000_000_000 / amountOfTicks;
         double delta = 0;
@@ -61,7 +61,7 @@ public class TrafficLightSimulationApplication {
                 lightTick++;
 
                 handleArrivalCarAtIntersection(tick);
-                handleTrafficLightChange(intersectionService, CZAS_DOL_GORA, CZAS_LEWO_PRAWO, CZAS_DOL_LEWO, CZAS_LEWO_GORA);
+                handleTrafficLightChange(intersectionService, southToNorthTimeLight, westToEastTimeLight, southToWestTimeLight, westToNorthTimeLight);
                 if (isUsedByAlgorithm) {
                     if (tick > 200) {
                         wyswietlWartosciDoUsuniecia(tick);
@@ -83,27 +83,27 @@ public class TrafficLightSimulationApplication {
     private void wyswietlWartosciDoUsuniecia(int tick) {
         System.out.println("Value: " + intersectionService.getValue());
         System.out.println(intersectionService.getIntersection());
-        System.out.println("dol-gora: " + CZAS_DOL_GORA + " lewo-prawo: " + CZAS_LEWO_PRAWO + " dol-lewo: " + CZAS_DOL_LEWO + " lewo-gora: " + CZAS_LEWO_GORA);
+        System.out.println("dol-gora: " + southToNorthTimeLight + " lewo-prawo: " + westToEastTimeLight + " dol-lewo: " + southToWestTimeLight + " lewo-gora: " + westToNorthTimeLight);
     }
 
-    private void handleTrafficLightChange(IntersectionService intersectionService, int czasDolGora, int czasLewoPrawo, int czasDolLewo, int czasLewoGora) {
+    private void handleTrafficLightChange(IntersectionService intersectionService, int southToNorthTime, int westToEastTime, int southToWestTime, int westToNorthTime) {
         if (intersectionService.intersection.getLightSouthToNorthAndNorthToSouth() == Light.GREEN) {
-            if (lightTick % countTimeWithSpeed(czasDolGora) == 0) {
+            if (lightTick % countTimeWithSpeed(southToNorthTime) == 0) {
                 intersectionService.changeLight();
                 lightTick = 0;
             }
         } else if (intersectionService.intersection.getLightWestToEastAndEastToWest() == Light.GREEN) {
-            if (lightTick % countTimeWithSpeed(czasLewoPrawo) == 0) {
+            if (lightTick % countTimeWithSpeed(westToEastTime) == 0) {
                 intersectionService.changeLight();
                 lightTick = 0;
             }
         } else if (intersectionService.intersection.getLightSouthToWestAndNorthToEast() == Light.GREEN) {
-            if (lightTick % countTimeWithSpeed(czasDolLewo) == 0) {
+            if (lightTick % countTimeWithSpeed(southToWestTime) == 0) {
                 intersectionService.changeLight();
                 lightTick = 0;
             }
         } else if (intersectionService.intersection.getLightWestToNorthAndEastToSouth() == Light.GREEN) {
-            if (lightTick % countTimeWithSpeed(czasLewoGora) == 0) {
+            if (lightTick % countTimeWithSpeed(westToNorthTime) == 0) {
                 intersectionService.changeLight();
                 lightTick = 0;
             }
@@ -112,7 +112,6 @@ public class TrafficLightSimulationApplication {
 
 
     private void handleArrivalCarAtIntersection(int tick) {
-        // every 2 second
         if (tick % countTimeWithSpeed(carArrivalTimeSouthToNorth) == 0) {
             intersectionService.addCarSouth();
         }

@@ -1,3 +1,11 @@
 
-w
-java:S1128"URemove this unused import 'pl.mazurek.application.TrafficLightSimulationApplication'.(­Ü¶Šüÿÿÿÿ8Ö½–ì÷1
+ž
+java:S1186?"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Â×‰Ã8Ü¡žôþ1
+ž
+java:S1186B"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Š¶ð¿8ß¡žôþ1
+Z
+java:S1948"=Make "geneticAlgorithmApplication" transient or serializable.(¤ ¥‡8é¡žôþ1
+c
+java:S3252"AUse static access with "javax.swing.SwingConstants" for "CENTER".(¨£ÇÈþÿÿÿÿ8ð¡žôþ1
+I
+java:S1602F",Remove useless curly braces around statement(¥—ýð8€¢žôþ1
