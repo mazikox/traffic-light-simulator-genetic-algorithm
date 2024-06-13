@@ -32,7 +32,7 @@ public class HomeSimulationPanel extends JPanel {
             startSimulation(simulationApplication);
         });
 
-        resetButton.addActionListener(e -> resetSimulation(simulationApplication, carPanel));
+        resetButton.addActionListener(e -> resetSimulation(carPanel));
     }
 
     private void createTimerForCarAnimation(CarPanelService carPanel) {
@@ -47,7 +47,7 @@ public class HomeSimulationPanel extends JPanel {
         timer.start();
     }
 
-    private void resetSimulation(TrafficLightSimulationApplication simulationApplication, CarPanelService carPanel) {
+    private void resetSimulation(CarPanelService carPanel) {
         simulationApplication.stop();
         carPanel.resetCars();
         timer.stop();

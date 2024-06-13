@@ -12,7 +12,7 @@ public class TrafficLightSimulationApplication {
     public int westToEastTimeLight = 1000;
     public int southToWestTimeLight = 1500;
     public int westToNorthTimeLight = 2500;
-    public int carArrivalTimeNorthToSouth = 200;
+    public int carArrivalTimeNorthToSouth = 400;
     public int carArrivalTimeEastToWest = 550;
     public int carArrivalTimeSouthToNorth = 2000;
     public int carArrivalTimeWestToEast = 850;

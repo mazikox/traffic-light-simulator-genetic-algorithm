@@ -1,8 +1,8 @@
 
 z
 java:S1104
-"XMake intersection a static final constant or non-public and provide accessors if needed.(ÊÝ‰Åýÿÿÿÿ8¬°ÈÑþ1
+"XMake intersection a static final constant or non-public and provide accessors if needed.(ÊÝ‰Åýÿÿÿÿ8ô·†–€2
 o
-java:S3776+"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ü¹çà8¨²ÈÑþ1
+java:S3776+"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ü¹çà8×º†–€2
 t
-java:S3776G"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(ðÖâ™ýÿÿÿÿ8­²ÈÑþ1
+java:S3776G"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ðÖâ™ýÿÿÿÿ8Üº†–€2

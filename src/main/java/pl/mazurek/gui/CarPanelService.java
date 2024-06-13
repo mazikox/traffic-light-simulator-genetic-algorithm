@@ -59,12 +59,12 @@ public class CarPanelService extends JPanel {
                         Car previousCar = getLastCarFromDirection(Direction.SOUTH, Direction.NORTH);
                         int x = 550;
                         int y = 750;
-                        // jesli samochod jest poza ekranem
                         if (previousCar != null && previousCar.y > 700) {
                             y = previousCar.y + 100;
                         }
                         addCar(x, y, Direction.SOUTH, Direction.NORTH);
-                        simulationApplication.getIntersectionService().getIntersection().setCarsSouthToNorthForRender(simulationApplication.getIntersectionService().getIntersection().getCarsSouthToNorthForRender() - 1);
+                        simulationApplication.getIntersectionService().getIntersection().setCarsSouthToNorthForRender(
+                                simulationApplication.getIntersectionService().getIntersection().getCarsSouthToNorthForRender() - 1);
 
                     }
                     if (simulationApplication.getIntersectionService().getIntersection().getCarsNorthToSouthForRender() > 0) {
@@ -154,12 +154,7 @@ public class CarPanelService extends JPanel {
             Car car = iterator.next();
             if ((car.getDirection() == Direction.NORTH && car.getStartPosition() == Direction.SOUTH) &&
                     (simulationApplication.getIntersectionService().intersection.getLightSouthToNorthAndNorthToSouth() == Light.GREEN || car.y < 430)) {
-
-                Car previousCar = getLastCarFromDirectionInFront(Direction.SOUTH, Direction.WEST, car);
-
-                if ((previousCar == null || (previousCar.y + 100 > car.x) || car.y < 450)) {
-                    car.y -= 5 * simulationApplication.speed;
-                }
+                car.y -= 5 * simulationApplication.speed;
             } else if ((car.getDirection() == Direction.SOUTH && car.getStartPosition() == Direction.NORTH) &&
                     (simulationApplication.getIntersectionService().intersection.getLightSouthToNorthAndNorthToSouth() == Light.GREEN || car.y > 230)) {
                 car.y += 5 * simulationApplication.speed;
@@ -277,21 +272,21 @@ public class CarPanelService extends JPanel {
                     case SOUTH -> {
                         if (car.y > 330 || car.getDirection() == Direction.NORTH) {
                             g.drawImage(imgCarUp, car.x, car.y, 35, 40, this);
-                        }else {
+                        } else {
                             g.drawImage(imgCarLeft, car.x, car.y, 40, 35, this);
                         }
                     }
                     case WEST -> {
-                        if(car.x < 480 || car.getDirection() == Direction.EAST){
+                        if (car.x < 480 || car.getDirection() == Direction.EAST) {
                             g.drawImage(imgCarRight, car.x, car.y, 40, 35, this);
-                        }else{
+                        } else {
                             g.drawImage(imgCarUp, car.x, car.y, 35, 40, this);
                         }
                     }
                     case EAST -> {
-                        if(car.x > 450 || car.getDirection() == Direction.WEST){
+                        if (car.x > 450 || car.getDirection() == Direction.WEST) {
                             g.drawImage(imgCarLeft, car.x, car.y, 40, 35, this);
-                        }else{
+                        } else {
                             g.drawImage(imgCarDown, car.x, car.y, 35, 40, this);
                         }
                     }

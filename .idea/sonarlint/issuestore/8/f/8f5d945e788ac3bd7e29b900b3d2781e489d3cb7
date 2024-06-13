@@ -12,7 +12,7 @@ java:S1104"`Make southToWestTimeLight a static final constant or non-public an
 ‚
 java:S1104"`Make westToNorthTimeLight a static final constant or non-public and provide accessors if needed.(ü³Ôüÿÿÿÿ8“¯êÑş1
 ˆ
-java:S1104"fMake carArrivalTimeNorthToSouth a static final constant or non-public and provide accessors if needed.(õ“”®ÿÿÿÿÿ8—¸›¢ü1
+java:S1104"fMake carArrivalTimeNorthToSouth a static final constant or non-public and provide accessors if needed.(®Ü‰şøÿÿÿÿ8—¸›¢ü1
 †
 java:S1104"dMake carArrivalTimeEastToWest a static final constant or non-public and provide accessors if needed.(â‰ıÑÿÿÿÿÿ8—¸›¢ü1
 ˆ

@@ -7,10 +7,10 @@ import java.awt.*;
 
 public class GeneticAlgorithPanel extends JPanel {
 
-    JTextField populationArea;
-    JTextField generationArea;
-    JTextField mutationArea;
-    JTextArea logsArea;
+    JTextField populationTextField;
+    JTextField generationTextField;
+    JTextField mutationTextField;
+    JTextArea logsTextArea;
     GeneticAlgorithmApplication geneticAlgorithmApplication;
 
     public GeneticAlgorithPanel() {
@@ -26,16 +26,16 @@ public class GeneticAlgorithPanel extends JPanel {
         algorithmSettingsPanel.setLayout(new GridLayout(3, 2, 10, 10));
 
         algorithmSettingsPanel.add(new JLabel("Population size:"));
-        populationArea = new JTextField(String.valueOf(GeneticAlgorithmApplication.POPULATION));
-        algorithmSettingsPanel.add(populationArea);
+        populationTextField = new JTextField(String.valueOf(GeneticAlgorithmApplication.POPULATION));
+        algorithmSettingsPanel.add(populationTextField);
 
         algorithmSettingsPanel.add(new JLabel("Number of generations:"));
-        generationArea = new JTextField(String.valueOf(GeneticAlgorithmApplication.GENERATION));
-        algorithmSettingsPanel.add(generationArea);
+        generationTextField = new JTextField(String.valueOf(GeneticAlgorithmApplication.GENERATION));
+        algorithmSettingsPanel.add(generationTextField);
 
         algorithmSettingsPanel.add(new JLabel("Mutation chance:"));
-        mutationArea = new JTextField(String.valueOf(GeneticAlgorithmApplication.MUTATION_PROBABILITY));
-        algorithmSettingsPanel.add(mutationArea);
+        mutationTextField = new JTextField(String.valueOf(GeneticAlgorithmApplication.MUTATION_PROBABILITY));
+        algorithmSettingsPanel.add(mutationTextField);
 
         add(algorithmSettingsPanel, BorderLayout.CENTER);
 
@@ -54,21 +54,33 @@ public class GeneticAlgorithPanel extends JPanel {
         startButton.addActionListener(e -> startSimulation());
         buttonPanel.add(startButton);
 
-        logsArea = new JTextArea(10,50);
-        logsArea.setFont(new Font("Serif", Font.BOLD, 18));
-        buttonPanel.add(logsArea);
+        logsTextArea = new JTextArea(10, 50);
+        logsTextArea.setFont(new Font("Serif", Font.BOLD, 18));
+        logsTextArea.setEditable(false);
+        buttonPanel.add(logsTextArea);
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    private void cancelSettings() {
-    }
-
     private void saveSettings() {
+        try {
+            GeneticAlgorithmApplication.POPULATION = Integer.parseInt(populationTextField.getText());
+            GeneticAlgorithmApplication.GENERATION = Integer.parseInt(generationTextField.getText());
+            GeneticAlgorithmApplication.MUTATION_PROBABILITY = Double.parseDouble(mutationTextField.getText());
+            JOptionPane.showMessageDialog(this, "Settings saved successfully.");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Not a number!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    private void startSimulation(){
+    private void cancelSettings() {
+        populationTextField.setText(String.valueOf(GeneticAlgorithmApplication.POPULATION));
+        generationTextField.setText(String.valueOf(GeneticAlgorithmApplication.GENERATION));
+        mutationTextField.setText(String.valueOf(GeneticAlgorithmApplication.MUTATION_PROBABILITY));
+    }
+
+    private void startSimulation() {
         new Thread(() -> {
-            geneticAlgorithmApplication.startAlgorithm(logsArea);
+            geneticAlgorithmApplication.startAlgorithm(logsTextArea);
         }).start();
     }
 }

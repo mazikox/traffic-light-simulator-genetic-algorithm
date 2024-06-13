@@ -6,11 +6,10 @@ import java.util.Random;
 public class GeneticAlgorithmApplication {
 
     public static int POPULATION = 10;
-    public static int GENERATION = 5;
+    public static int GENERATION  = 5;
     public static double MUTATION_PROBABILITY = 0.1;
 
     public void startAlgorithm(JTextArea textArea) {
-        System.out.println("Started algorithm");
         textArea.append("Started algorithm\n");
         int[] results = new int[POPULATION];
         int[] timeSouthToNorthAndNorthToSouth = new int[POPULATION];
@@ -25,7 +24,10 @@ public class GeneticAlgorithmApplication {
             timeSouthToWestAndNorthToEast[i] = generateTime();
             timeWestToNorthAndEastToSouth[i] = generateTime();
             System.out.println("results");
-            results[i] = startSimulation(timeSouthToNorthAndNorthToSouth[i], timeWestToEastAndEastToWest[i], timeSouthToWestAndNorthToEast[i], timeWestToNorthAndEastToSouth[i]);
+            results[i] = startSimulation(timeSouthToNorthAndNorthToSouth[i],
+                    timeWestToEastAndEastToWest[i],
+                    timeSouthToWestAndNorthToEast[i],
+                    timeWestToNorthAndEastToSouth[i]);
             textArea.append(".");
         }
 
@@ -77,9 +79,15 @@ public class GeneticAlgorithmApplication {
                 }
 
                 // rating kids
-                newResults[j] = startSimulation(newTimeSouthToNorthAndNorthToSouth[j], newTimeWestToEastAndEastToWest[j], newTimeSouthToWestAndNorthToEast[j], newTimeWestToNorthAndEastToSouth[j]);
+                newResults[j] = startSimulation(newTimeSouthToNorthAndNorthToSouth[j],
+                        newTimeWestToEastAndEastToWest[j],
+                        newTimeSouthToWestAndNorthToEast[j],
+                        newTimeWestToNorthAndEastToSouth[j]);
                 textArea.append(".");
-                newResults[j + 1] = startSimulation(newTimeSouthToNorthAndNorthToSouth[j + 1], newTimeWestToEastAndEastToWest[j + 1], newTimeSouthToWestAndNorthToEast[j + 1], newTimeWestToNorthAndEastToSouth[j + 1]);
+                newResults[j + 1] = startSimulation(newTimeSouthToNorthAndNorthToSouth[j + 1],
+                        newTimeWestToEastAndEastToWest[j + 1],
+                        newTimeSouthToWestAndNorthToEast[j + 1],
+                        newTimeWestToNorthAndEastToSouth[j + 1]);
                 textArea.append(".");
             }
 
@@ -92,20 +100,16 @@ public class GeneticAlgorithmApplication {
         }
 
         int bestIndex = findBestIndex(results);
-        System.out.println("timeSouthToNorthAndNorthToSouth: " + timeSouthToNorthAndNorthToSouth[bestIndex]);
-        System.out.println("timeWestToEastAndEastToWest: " + timeWestToEastAndEastToWest[bestIndex]);
-        System.out.println("timeSouthToWestAndNorthToEast: " + timeSouthToWestAndNorthToEast[bestIndex]);
-        System.out.println("timeWestToNorthAndEastToSouth: " + timeWestToNorthAndEastToSouth[bestIndex]);
         textArea.setText("South to North: " + timeSouthToNorthAndNorthToSouth[bestIndex]);
         textArea.append("\nSouth to West: " + timeSouthToWestAndNorthToEast[bestIndex]);
         textArea.append("\nWest to East: " + timeWestToEastAndEastToWest[bestIndex]);
         textArea.append("\nWest To North: " + timeWestToNorthAndEastToSouth[bestIndex]);
     }
 
-    private int findBestIndex(int[] wyniki) {
+    private int findBestIndex(int[] results) {
         int bestIndex = 0;
-        for (int i = 1; i < wyniki.length; i++) {
-            if (wyniki[i] > wyniki[bestIndex]) {
+        for (int i = 1; i < results.length; i++) {
+            if (results[i] > results[bestIndex]) {
                 bestIndex = i;
             }
         }
@@ -113,7 +117,7 @@ public class GeneticAlgorithmApplication {
     }
 
     private int mutate(int time) {
-        int mutationAmount = new Random().nextInt(5500) + 1000;
+        int mutationAmount = new Random().nextInt(3500) + 2000;
         return time + mutationAmount;
     }
 
@@ -152,6 +156,6 @@ public class GeneticAlgorithmApplication {
     }
 
     private int generateTime() {
-        return new Random().nextInt(6000) + 1000;
+        return new Random().nextInt(4000) + 2000;
     }
 }

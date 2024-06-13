@@ -72,65 +72,61 @@ public class IntersectionService {
         if (intersection.getCarsSouthToNorthOnIntersection() != 0 && intersection.getLightSouthToNorthAndNorthToSouth() == Light.GREEN) {
             intersection.setCarsSouthToNorthOnIntersection(intersection.getCarsSouthToNorthOnIntersection() - 1);
             intersection.setCarsPassedSouthToNorth(intersection.getCarsPassedSouthToNorth() + 1);
-            if (intersection.getCarsSouthToNorthOnIntersection() > simulationApplication.carArrivalTimeSouthToNorth / 150) {
-                value += simulationApplication.carArrivalTimeSouthToNorth / 2;
-            } else {
-                value += simulationApplication.carArrivalTimeSouthToNorth;
-            }
+                value += simulationApplication.carArrivalTimeSouthToNorth * calculateValue(simulationApplication);
         }
 
         if (intersection.getCarsNorthToSouthOnIntersection() != 0 && intersection.getLightSouthToNorthAndNorthToSouth() == Light.GREEN) {
             intersection.setCarsNorthToSouthOnIntersection(intersection.getCarsNorthToSouthOnIntersection() - 1);
             intersection.setCarsPassedNorthToSouth(intersection.getCarsPassedNorthToSouth() + 1);
-            if (intersection.getCarsNorthToSouthOnIntersection() > simulationApplication.carArrivalTimeNorthToSouth / 150) {
-                value += simulationApplication.carArrivalTimeNorthToSouth / 2;
-            } else {
-                value += simulationApplication.carArrivalTimeNorthToSouth;
-            }
+                value += simulationApplication.carArrivalTimeNorthToSouth * calculateValue(simulationApplication);
         }
 
         if (intersection.getCarsWestToEastOnIntersection() != 0 && intersection.getLightWestToEastAndEastToWest() == Light.GREEN) {
             intersection.setCarsWestToEastOnIntersection(intersection.getCarsWestToEastOnIntersection() - 1);
             intersection.setCarsPassedWestToEast(intersection.getCarsPassedWestToEast() + 1);
-            if (intersection.getCarsWestToEastOnIntersection() > simulationApplication.carArrivalTimeWestToEast / 150) {
-                value += simulationApplication.carArrivalTimeWestToEast / 2;
-            } else {
-                value += simulationApplication.carArrivalTimeWestToEast;
-            }
+                value += simulationApplication.carArrivalTimeWestToEast * calculateValue(simulationApplication);
         }
 
         if (intersection.getCarsEastToWestOnIntersection() != 0 && intersection.getLightWestToEastAndEastToWest() == Light.GREEN) {
             intersection.setCarsEastToWestOnIntersection(intersection.getCarsEastToWestOnIntersection() - 1);
             intersection.setCarsPassedEastToWest(intersection.getCarsPassedEastToWest() + 1);
-            if (intersection.getCarsEastToWestOnIntersection() > simulationApplication.carArrivalTimeEastToWest / 150) {
-                value += simulationApplication.carArrivalTimeEastToWest / 2;
-            } else {
-                value += simulationApplication.carArrivalTimeEastToWest;
-            }
+                value += simulationApplication.carArrivalTimeEastToWest * calculateValue(simulationApplication);
         }
 
         if (intersection.getCarsSouthToWestOnIntersection() != 0 && intersection.getLightSouthToWestAndNorthToEast() == Light.GREEN) {
             intersection.setCarsSouthToWestOnIntersection(intersection.getCarsSouthToWestOnIntersection() - 1);
             intersection.setCarsPassedSouthToWest(intersection.getCarsPassedSouthToWest() + 1);
-            value += simulationApplication.carArrivalTimeSouthToWest;
+            value += simulationApplication.carArrivalTimeSouthToWest * calculateValue(simulationApplication);
         }
 
         if (intersection.getCarsNorthToEastOnIntersection() != 0 && intersection.getLightSouthToWestAndNorthToEast() == Light.GREEN) {
             intersection.setCarsNorthToEastOnIntersection(intersection.getCarsNorthToEastOnIntersection() - 1);
             intersection.setCarsPassedNorthToEast(intersection.getCarsPassedNorthToEast() + 1);
-            value += simulationApplication.carArrivalTimeNorthToEast;
+            value += simulationApplication.carArrivalTimeNorthToEast * calculateValue(simulationApplication);
         }
 
         if (intersection.getCarsWestToNorthOnIntersection() != 0 && intersection.getLightWestToNorthAndEastToSouth() == Light.GREEN) {
             intersection.setCarsWestToNorthOnIntersection(intersection.getCarsWestToNorthOnIntersection() - 1);
             intersection.setCarsPassedWestToNorth(intersection.getCarsPassedWestToNorth() + 1);
-            value += simulationApplication.carArrivalTimeWestToNorth;
+            value += simulationApplication.carArrivalTimeWestToNorth * calculateValue(simulationApplication);
         }
 
         if (intersection.getCarsEastToSouthOnIntersection() != 0 && intersection.getLightWestToNorthAndEastToSouth() == Light.GREEN) {
             intersection.setCarsEastToSouthOnIntersection(intersection.getCarsEastToSouthOnIntersection() - 1);
             intersection.setCarsPassedEastToSouth(intersection.getCarsPassedEastToSouth() + 1);
-            value += simulationApplication.carArrivalTimeEastToSouth;
+            value += simulationApplication.carArrivalTimeEastToSouth * calculateValue(simulationApplication);
+        }
+    }
+
+    public double calculateValue(TrafficLightSimulationApplication simulationApplication) {
+        if (intersection.getCarsSouthToNorthOnIntersection() > simulationApplication.carArrivalTimeSouthToNorth / 150
+                || intersection.getCarsNorthToSouthOnIntersection() > simulationApplication.carArrivalTimeNorthToSouth / 150
+                || intersection.getCarsWestToEastOnIntersection() > simulationApplication.carArrivalTimeWestToEast / 150
+                || intersection.getCarsEastToWestOnIntersection() > simulationApplication.carArrivalTimeEastToWest / 150) {
+            return 0.5;
+        }
+        else{
+            return 2.0;
         }
     }
 
